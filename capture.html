@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carbon Capture — E4 Energy Services</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .capture-body { padding: 6rem 4rem; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 6rem; }
+
+  .capture-body p { color: var(--mist); line-height: 1.9; margin-bottom: 1.4rem; font-size: 0.95rem; }
+
+  /* credit table */
+  .credit-callout {
+    background: var(--slate); border: 1px solid rgba(0,200,160,0.2);
+    padding: 2.5rem; margin-top: 2.5rem;
+  }
+  .credit-callout h4 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
+    letter-spacing: 0.06em; color: var(--accent); margin-bottom: 1.2rem;
+  }
+  .credit-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.9rem 0; border-bottom: 1px solid rgba(143,165,187,0.1);
+    font-size: 0.85rem; color: var(--mist);
+  }
+  .credit-row:last-child { border-bottom: none; }
+  .credit-row .val {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+    color: var(--gold); letter-spacing: 0.04em; flex-shrink: 0;
+  }
+
+  /* metric bars */
+  .metric-bar { margin-bottom: 1.8rem; }
+  .metric-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: var(--mist); margin-bottom: 0.5rem;
+  }
+  .metric-label strong { color: var(--white); font-weight: 400; }
+  .metric-label span { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.72rem; }
+  .metric-track { height: 4px; background: rgba(143,165,187,0.15); }
+  .metric-fill {
+    height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent));
+    transform-origin: left; animation: barGrow 1.5s ease 0.5s both;
+  }
+  @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* comparison table */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
+  .compare-table th {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 1rem 1.2rem; text-align: left;
+    border-bottom: 2px solid rgba(0,200,160,0.2);
+  }
+  .compare-table th:first-child { color: var(--mist); }
+  .compare-table th.e4 { color: var(--accent); }
+  .compare-table th.electric { color: var(--mist); }
+  .compare-table td {
+    padding: 1rem 1.2rem; font-size: 0.85rem;
+    border-bottom: 1px solid rgba(143,165,187,0.08);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td:first-child { color: var(--mist); }
+  .compare-table td.good { color: var(--accent); }
+  .compare-table td.bad { color: rgba(143,165,187,0.5); }
+  .compare-table tr:hover td { background: rgba(0,200,160,0.03); }
+
+  /* pilot section */
+  .pilot-section {
+    background: var(--steel); border: 1px solid rgba(0,200,160,0.15);
+    padding: 4rem; margin-top: 2rem;
+  }
+  .pilot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+  .pilot-item { }
+  .pilot-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+    color: var(--accent); line-height: 1; margin-bottom: 0.4rem;
+  }
+  .pilot-label { font-size: 0.82rem; color: var(--mist); line-height: 1.7; }
+
+  .milestone-list { list-style: none; margin-top: 2rem; }
+  .milestone-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 0.8rem 0; border-bottom: 1px solid rgba(143,165,187,0.08);
+    font-size: 0.85rem; color: var(--mist);
+  }
+  .milestone-list li:last-child { border-bottom: none; }
+  .ms-check { color: var(--accent); flex-shrink: 0; margin-top: 0.1rem; }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="section-label page-hero-label">45Q &amp; Carbon Economics</div>
+  <h1>THE CARBON<br><em>CAPTURE</em><br>OPPORTUNITY</h1>
+  <p>Regulatory changes have dramatically improved the economics of carbon capture for compression operators. E4's ECC system is positioned to make capture financially compelling at mid-size stations — not just large industrial facilities.</p>
+</div>
+
+<div class="capture-body">
+  <div class="two-col">
+    <div>
+      <div class="section-label">45Q Tax Credits</div>
+      <h2 class="section-h2">REAL REVENUE<br>FROM CAPTURED<br>CARBON</h2>
+      <p>The Inflation Reduction Act significantly expanded the 45Q tax credit program — raising per-ton credit values and lowering the minimum annual capture threshold from 500,000 metric tons to just 12,500 metric tons. This change makes E4's ECC system economically viable at compressor stations that would never have qualified under prior rules.</p>
+      <p>CO₂ captured from engine exhaust is classified as anthropogenic — the same CO₂ that was always going to atmosphere — making it fully eligible for 45Q credits. This also counts toward Scope 1 and Scope 2 carbon reduction commitments.</p>
+
+      <div class="credit-callout reveal">
+        <h4>45Q Tax Credit Schedule (IRA)</h4>
+        <div class="credit-row"><span>Enhanced Oil Recovery (EOR)</span><span class="val">$60<small style="font-size:0.55em;color:var(--mist)">/ton</small></span></div>
+        <div class="credit-row"><span>Geologic Sequestration</span><span class="val">$85<small style="font-size:0.55em;color:var(--mist)">/ton</small></span></div>
+        <div class="credit-row"><span>Prior Minimum Threshold</span><span class="val">500K<small style="font-size:0.55em;color:var(--mist)"> tons/yr</small></span></div>
+        <div class="credit-row"><span>New Minimum Threshold (IRA)</span><span class="val">12,500<small style="font-size:0.55em;color:var(--mist)"> tons/yr</small></span></div>
+        <div class="credit-row"><span>ECC Capacity (15k hp station)</span><span class="val">75,000<small style="font-size:0.55em;color:var(--mist)"> tons/yr</small></span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">ECC vs Electric Conversion</div>
+      <h2 class="section-h2">THE BETTER<br>ECONOMICS</h2>
+      <p>Electric drive conversion is the most commonly discussed decarbonization path for compression. But peak demand charges — rarely factored into front-end economics — can dramatically increase operating expense, and the capital required to replace the engine plus connect grid infrastructure is substantial. And it generates no credit revenue.</p>
+
+      <div class="metric-bar">
+        <div class="metric-label"><strong>Capital Efficiency vs Electric Conversion</strong><span>High</span></div>
+        <div class="metric-track"><div class="metric-fill" style="width:88%"></div></div>
+      </div>
+      <div class="metric-bar">
+        <div class="metric-label"><strong>45Q Credit Eligibility</strong><span>Full</span></div>
+        <div class="metric-track"><div class="metric-fill" style="width:100%"></div></div>
+      </div>
+      <div class="metric-bar">
+        <div class="metric-label"><strong>Scope 1 &amp; 2 Reduction</strong><span>Both</span></div>
+        <div class="metric-track"><div class="metric-fill" style="width:95%"></div></div>
+      </div>
+      <div class="metric-bar">
+        <div class="metric-label"><strong>Retrofit Complexity</strong><span>Low</span></div>
+        <div class="metric-track"><div class="metric-fill" style="width:30%"></div></div>
+      </div>
+      <div class="metric-bar">
+        <div class="metric-label"><strong>Operational Disruption</strong><span>Minimal</span></div>
+        <div class="metric-track"><div class="metric-fill" style="width:15%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="section-label">Side-by-Side Comparison</div>
+  <h2 class="section-h2">ECC vs ELECTRIC<br>CONVERSION</h2>
+  <table class="compare-table reveal">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="e4">E4 ECC System</th>
+        <th class="electric">Electric Drive Conversion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Existing engine replacement</td><td class="good">Not required</td><td class="bad">Required</td></tr>
+      <tr><td>Grid infrastructure</td><td class="good">Not required</td><td class="bad">Required</td></tr>
+      <tr><td>45Q carbon credit revenue</td><td class="good">Yes — up to $85/ton</td><td class="bad">None</td></tr>
+      <tr><td>Electricity cost exposure</td><td class="good">None</td><td class="bad">Ongoing — plus peak demand charges</td></tr>
+      <tr><td>Waste heat power generation</td><td class="good">Integrated motor-generator</td><td class="bad">Not applicable</td></tr>
+      <tr><td>Scope 1 reduction</td><td class="good">Yes</td><td class="good">Yes</td></tr>
+      <tr><td>Scope 2 reduction</td><td class="good">Yes</td><td class="bad">Depends on grid source</td></tr>
+      <tr><td>Operating expense trend</td><td class="good">Improved (credits + efficiency)</td><td class="bad">Increases (electricity cost)</td></tr>
+      <tr><td>Installation complexity</td><td class="good">Analogous to waste heat recovery</td><td class="bad">Major civil &amp; electrical work</td></tr>
+    </tbody>
+  </table>
+
+  <!-- PILOT PROGRAM -->
+  <div class="pilot-section reveal">
+    <div class="section-label">Field Validation</div>
+    <h2 class="section-h2" style="margin-bottom:0.5rem;">NFG PILOT<br>PROGRAM</h2>
+    <p style="color:var(--mist); max-width:600px;">The ECC system pilot is being conducted with National Fuel Gas at an active compressor station — collecting real-world data across all key performance dimensions.</p>
+    <div class="pilot-grid">
+      <div>
+        <ul class="milestone-list">
+          <li><span class="ms-check">✓</span>System design complete, patent awarded April 2023</li>
+          <li><span class="ms-check">✓</span>CO₂ process modeling complete</li>
+          <li><span class="ms-check">✓</span>Design complete for manufacturing of test skid</li>
+          <li><span class="ms-check">✓</span>Component testing designed and ready to begin</li>
+          <li><span class="ms-check">✓</span>Pilot skid design completed as full working system</li>
+        </ul>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div class="pilot-item"><div class="pilot-num">CO₂</div><div class="pilot-label">Removal rate &amp; purity measured at actual compressor station</div></div>
+        <div class="pilot-item"><div class="pilot-num">kW</div><div class="pilot-label">Electric generation from waste heat quantified</div></div>
+        <div class="pilot-item"><div class="pilot-num">psi</div><div class="pilot-label">Processed CO₂ condition documented</div></div>
+        <div class="pilot-item"><div class="pilot-num">η</div><div class="pilot-label">Overall system efficiency across all operating modes</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>initPage('capture');</script>
+</body>
+</html>

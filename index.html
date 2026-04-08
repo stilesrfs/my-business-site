@@ -4,87 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>E4 Energy Services, LLC</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  :root {
-    --ink: #0D1117;
-    --steel: #1A2332;
-    --slate: #253347;
-    --mid: #3D5166;
-    --mist: #8FA5BB;
-    --ice: #C8D8E8;
-    --white: #F0F5FA;
-    --accent: #00C8A0;
-    --accent2: #00A882;
-    --gold: #E8B84B;
-    --red: #E84B4B;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--ink);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-    padding-top: 102px;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(13,17,23,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,200,160,0.15);
-  }
-
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.12em;
-    color: var(--white);
-  }
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-  .nav-links a {
-    color: var(--mist);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-
-  .nav-cta {
-    background: var(--accent);
-    color: var(--ink) !important;
-    padding: 0.5rem 1.2rem;
-    font-weight: 500 !important;
-    letter-spacing: 0.08em !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--accent2) !important; color: var(--ink) !important; }
-
   /* ── HERO ── */
   #hero {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - var(--nav-h));
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 0 4rem 6rem;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
-
   .hero-bg {
     position: absolute; inset: 0;
     background:
@@ -92,8 +20,6 @@
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(0,168,130,0.08) 0%, transparent 50%),
       linear-gradient(160deg, #0D1117 0%, #1A2332 50%, #0D1117 100%);
   }
-
-  /* animated grid */
   .hero-grid {
     position: absolute; inset: 0;
     background-image:
@@ -102,103 +28,47 @@
     background-size: 60px 60px;
     animation: gridShift 20s linear infinite;
   }
-  @keyframes gridShift {
-    from { background-position: 0 0; }
-    to { background-position: 60px 60px; }
-  }
+  @keyframes gridShift { from { background-position: 0 0; } to { background-position: 60px 60px; } }
 
-  /* floating particles */
   .particles { position: absolute; inset: 0; pointer-events: none; }
   .particle {
-    position: absolute;
-    width: 2px; height: 2px;
-    background: var(--accent);
-    border-radius: 50%;
-    opacity: 0;
-    animation: float var(--d, 8s) var(--delay, 0s) infinite ease-in-out;
+    position: absolute; width: 2px; height: 2px;
+    background: var(--accent); border-radius: 50%; opacity: 0;
+    animation: floatP var(--d, 8s) var(--delay, 0s) infinite ease-in-out;
   }
-  @keyframes float {
+  @keyframes floatP {
     0%,100% { opacity: 0; transform: translateY(0) scale(1); }
-    20% { opacity: 0.6; }
-    80% { opacity: 0.3; }
+    20% { opacity: 0.6; } 80% { opacity: 0.3; }
     100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
   }
 
   .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.2rem;
-    position: relative;
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.2rem; position: relative;
     display: flex; align-items: center; gap: 1rem;
     animation: fadeUp 0.8s ease 0.2s both;
   }
-  .hero-tag::before {
-    content: '';
-    width: 40px; height: 1px;
-    background: var(--accent);
-  }
+  .hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
 
   .hero-h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(4rem, 9vw, 9rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    position: relative;
+    line-height: 0.92; letter-spacing: 0.02em; position: relative;
     animation: fadeUp 0.8s ease 0.4s both;
   }
   .hero-h1 em { color: var(--accent); font-style: normal; }
-  .hero-h1 .outline {
-    -webkit-text-stroke: 1px rgba(200,216,232,0.3);
-    color: transparent;
-  }
+  .hero-h1 .outline { -webkit-text-stroke: 1px rgba(200,216,232,0.3); color: transparent; }
 
   .hero-sub {
-    max-width: 560px;
-    margin-top: 2rem;
-    font-size: 1.05rem;
-    color: var(--mist);
-    line-height: 1.8;
-    position: relative;
+    max-width: 560px; margin-top: 2rem; font-size: 1.05rem;
+    color: var(--mist); line-height: 1.8; position: relative;
     animation: fadeUp 0.8s ease 0.6s both;
   }
-
   .hero-actions {
-    display: flex; gap: 1.2rem; margin-top: 3rem;
-    position: relative;
+    display: flex; gap: 1.2rem; margin-top: 3rem; position: relative;
     animation: fadeUp 0.8s ease 0.8s both;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--ink);
-    padding: 0.85rem 2rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-
-  .btn-ghost {
-    border: 1px solid rgba(143,165,187,0.4);
-    color: var(--mist);
-    padding: 0.85rem 2rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
   .hero-stats {
     position: absolute; right: 4rem; bottom: 6rem;
     display: flex; flex-direction: column; gap: 2.5rem;
@@ -206,496 +76,63 @@
   }
   .stat { text-align: right; }
   .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    line-height: 1;
-    color: var(--accent);
-    letter-spacing: 0.04em;
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem;
+    line-height: 1; color: var(--accent); letter-spacing: 0.04em;
   }
-  .stat-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mist);
-    margin-top: 0.2rem;
-  }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mist); margin-top: 0.2rem; }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
-
-  /* ── SECTION BASE ── */
-  section { padding: 7rem 4rem; }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
-
-  .section-h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    margin-bottom: 3rem;
-  }
-
-  /* ── MARQUEE ── */
-  .marquee-wrap {
-    background: var(--accent);
-    overflow: hidden;
-    padding: 0.9rem 0;
-  }
-  .marquee-track {
-    display: flex; gap: 3rem;
-    animation: marquee 28s linear infinite;
-    white-space: nowrap;
-  }
-  .marquee-track span {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-    color: var(--ink);
-    flex-shrink: 0;
-  }
-  .marquee-dot { color: var(--steel) !important; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ── ABOUT ── */
-  #about {
-    background: var(--steel);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-    padding: 7rem 4rem;
-  }
-
-  .about-text p {
-    color: var(--mist);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    max-width: 480px;
-  }
-
-  .about-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .about-card {
-    background: var(--slate);
-    border: 1px solid rgba(0,200,160,0.12);
-    padding: 1.8rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .about-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .about-card:hover { border-color: rgba(0,200,160,0.35); transform: translateY(-3px); }
-  .about-card:hover::before { transform: scaleX(1); }
-
-  .about-card-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .about-card-label {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    color: var(--mist);
-  }
-
-  /* ── PRODUCTS ── */
-  #products { background: var(--ink); }
-
-  .products-intro {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    margin-bottom: 5rem;
-  }
-  .products-intro p { color: var(--mist); line-height: 1.9; }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(0,200,160,0.08);
-    border: 1px solid rgba(0,200,160,0.08);
-  }
-
-  .product-card {
-    background: var(--ink);
-    padding: 2.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-    cursor: default;
-  }
-  .product-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,200,160,0.04) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .product-card:hover { background: var(--steel); }
-  .product-card:hover::after { opacity: 1; }
-
-  .product-icon {
-    width: 44px; height: 44px;
-    border: 1px solid rgba(0,200,160,0.3);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-  }
-
-  .product-badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--accent);
-    padding: 0.2rem 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .product-badge.pending { background: var(--gold); }
-  .product-badge.presented { background: var(--mid); color: var(--ice); }
-
-  .product-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.8rem;
-    line-height: 1.1;
-  }
-
-  .product-desc {
-    font-size: 0.82rem;
-    color: var(--mist);
-    line-height: 1.75;
-  }
-
-  /* ── TECHNOLOGY DEEP-DIVE ── */
-  #technology {
-    background: var(--steel);
-    padding: 7rem 4rem;
-  }
-
-  .tech-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .tech-nav {
-    position: sticky; top: 7rem;
-    display: flex; flex-direction: column; gap: 0;
-  }
-
-  .tech-nav-item {
-    padding: 1rem 1.2rem;
-    border-left: 2px solid rgba(0,200,160,0.15);
-    cursor: pointer;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    color: var(--mist);
-    transition: all 0.2s;
-    background: none;
-    border-top: none; border-right: none; border-bottom: none;
-    text-align: left;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .tech-nav-item:hover, .tech-nav-item.active {
-    border-left-color: var(--accent);
-    color: var(--white);
-    background: rgba(0,200,160,0.05);
-  }
-
-  .tech-panels { }
-
-  .tech-panel {
-    display: none;
-    animation: fadeIn 0.4s ease;
-  }
-  .tech-panel.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-  .tech-panel h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-  }
-  .tech-panel p {
-    color: var(--mist);
-    line-height: 1.9;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .tech-specs {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem; margin-top: 2rem;
-  }
-  .tech-spec {
-    background: var(--slate);
-    padding: 1.2rem;
-    border-left: 2px solid var(--accent);
-  }
-  .tech-spec-key {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.3rem;
-  }
-  .tech-spec-val {
-    font-size: 0.88rem;
-    color: var(--white);
-  }
-
-  /* ── CARBON CAPTURE ── */
-  #capture {
-    background: var(--ink);
-    padding: 7rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  #capture::before {
-    content: '';
-    position: absolute; right: -200px; top: 50%;
-    transform: translateY(-50%);
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,200,160,0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .capture-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-
-  .capture-metrics {
-    display: flex; flex-direction: column; gap: 2rem;
-  }
-
-  .metric-bar {
-    position: relative;
-  }
-  .metric-label {
-    display: flex; justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--mist);
-    margin-bottom: 0.5rem;
-  }
-  .metric-label strong { color: var(--white); font-weight: 400; }
-  .metric-label span { color: var(--accent); font-family: 'DM Mono', monospace; }
-  .metric-track {
-    height: 4px;
-    background: rgba(143,165,187,0.15);
-    position: relative;
-    overflow: hidden;
-  }
-  .metric-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    transform-origin: left;
-    animation: barGrow 1.5s ease 0.5s both;
-  }
-  @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-
-  .credit-callout {
-    background: var(--steel);
-    border: 1px solid rgba(0,200,160,0.2);
-    padding: 2.5rem;
-    margin-top: 2.5rem;
-  }
-  .credit-callout h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-  .credit-rows { display: flex; flex-direction: column; gap: 0.8rem; }
-  .credit-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(143,165,187,0.1);
-    font-size: 0.85rem;
-  }
-  .credit-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .credit-row .val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PARTNERS ── */
-  #partners {
+  /* ── HOME OVERVIEW CARDS ── */
+  .overview {
     background: var(--steel);
     padding: 6rem 4rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;
+  }
+  .overview-card {
+    background: var(--slate);
+    border: 1px solid rgba(0,200,160,0.1);
+    padding: 2.5rem 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .overview-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .overview-card:hover { border-color: rgba(0,200,160,0.35); transform: translateY(-4px); }
+  .overview-card:hover::before { transform: scaleX(1); }
+  .oc-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+  .oc-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+    letter-spacing: 0.04em; margin-bottom: 0.8rem;
+  }
+  .oc-desc { font-size: 0.85rem; color: var(--mist); line-height: 1.75; }
+  .oc-link {
+    display: inline-block; margin-top: 1.2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
   }
 
-  .partners-intro { max-width: 560px; margin-bottom: 4rem; }
-  .partners-intro p { color: var(--mist); }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(143,165,187,0.1);
-  }
-
-  .partner-cell {
-    background: var(--steel);
-    padding: 2rem 1.5rem;
-    display: flex; align-items: center; justify-content: flex-start;
-    transition: background 0.2s;
-  }
-  .partner-cell:hover { background: var(--slate); }
-
-  .partner-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-    color: var(--mist);
-    transition: color 0.2s;
-  }
-  .partner-cell:hover .partner-name { color: var(--white); }
-
-  .partner-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-right: 0.8rem;
-    flex-shrink: 0;
-  }
-
-  /* ── CONTACT ── */
-  #contact {
+  /* ── STATS BAND ── */
+  .stats-band {
     background: var(--ink);
-    padding: 8rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
+    padding: 5rem 4rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    border-top: 1px solid rgba(0,200,160,0.08);
+    border-bottom: 1px solid rgba(0,200,160,0.08);
   }
-
-  .contact-left h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
+  .band-stat { border-left: 2px solid rgba(0,200,160,0.2); padding-left: 1.5rem; }
+  .band-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem;
+    color: var(--accent); line-height: 1; letter-spacing: 0.04em;
   }
-  .contact-left h2 em { color: var(--accent); font-style: normal; }
-  .contact-left p { color: var(--mist); max-width: 400px; }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .form-group input, .form-group textarea, .form-group select {
-    background: var(--steel);
-    border: 1px solid rgba(143,165,187,0.2);
-    color: var(--white);
-    padding: 0.9rem 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--accent);
-  }
-  .form-group select option { background: var(--steel); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--steel);
-    border-top: 1px solid rgba(0,200,160,0.12);
-    padding: 3rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.1em;
-    color: var(--white);
-  }
-  .footer-logo span { color: var(--accent); }
-
-  .footer-links { display: flex; gap: 2rem; }
-  .footer-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mist);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--accent); }
-
-  .footer-copy {
-    font-size: 0.72rem;
-    color: var(--mid);
-    letter-spacing: 0.05em;
-  }
-
-  /* scrollbar */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--ink); }
-  ::-webkit-scrollbar-thumb { background: var(--mid); }
-  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+  .band-label { font-size: 0.78rem; color: var(--mist); margin-top: 0.4rem; letter-spacing: 0.05em; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">E4 <span>ENERGY</span> SERVICES</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#technology">Technology</a></li>
-    <li><a href="#capture">Carbon Capture</a></li>
-    <li><a href="#partners">Partners</a></li>
-    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -712,29 +149,19 @@
     E4 Energy Services delivers patented technology to eliminate fugitive methane emissions, capture exhaust CO₂, and decarbonize natural gas compression — without shutting down your operations.
   </p>
   <div class="hero-actions">
-    <a href="#products" class="btn-primary">Explore Products</a>
-    <a href="#contact" class="btn-ghost">Request a Pilot</a>
+    <a href="products.html" class="btn-primary">Explore Products</a>
+    <a href="contact.html" class="btn-ghost">Request a Pilot</a>
   </div>
-
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">99%</div>
-      <div class="stat-label">CO₂ Separation Efficiency</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">75K</div>
-      <div class="stat-label">Tons/Year CO₂ Capacity</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">$85</div>
-      <div class="stat-label">45Q Credit / Ton Sequestered</div>
-    </div>
+    <div class="stat"><div class="stat-num">99%</div><div class="stat-label">CO₂ Separation Efficiency</div></div>
+    <div class="stat"><div class="stat-num">75K</div><div class="stat-label">Tons/Year CO₂ Capacity</div></div>
+    <div class="stat"><div class="stat-num">$85</div><div class="stat-label">45Q Credit / Ton Sequestered</div></div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
-  <div class="marquee-track" id="marquee">
+  <div class="marquee-track">
     <span>Zero Methane Rod Packing</span><span class="marquee-dot">◆</span>
     <span>Exhaust Carbon Capture</span><span class="marquee-dot">◆</span>
     <span>Rotary Scrubber / Separator</span><span class="marquee-dot">◆</span>
@@ -743,7 +170,6 @@
     <span>Fuel Gas Conditioner</span><span class="marquee-dot">◆</span>
     <span>Centrifugal Production Separator</span><span class="marquee-dot">◆</span>
     <span>Cryo CO₂ Separator</span><span class="marquee-dot">◆</span>
-    <!-- duplicate for seamless loop -->
     <span>Zero Methane Rod Packing</span><span class="marquee-dot">◆</span>
     <span>Exhaust Carbon Capture</span><span class="marquee-dot">◆</span>
     <span>Rotary Scrubber / Separator</span><span class="marquee-dot">◆</span>
@@ -755,449 +181,64 @@
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-text">
-    <div class="section-label">Who We Are</div>
-    <h2 class="section-h2">BUILT FOR THE<br>COMPRESSION<br>INDUSTRY</h2>
-    <p>E4 Energy Services engineers and deploys next-generation emissions reduction products for natural gas compressors — combining patented mechanical innovation with proven field performance.</p>
-    <p>Our technology portfolio spans fugitive methane elimination, exhaust carbon capture, and fluid separation — all designed to retrofit existing assets without costly electric conversions.</p>
-    <a href="#products" class="btn-primary" style="margin-top:1rem; display:inline-block;">See Our Products</a>
-  </div>
-  <div class="about-right">
-    <div class="about-card">
-      <div class="about-card-num">6+</div>
-      <div class="about-card-label">Patents Granted &amp; Pending</div>
-    </div>
-    <div class="about-card">
-      <div class="about-card-num">20%</div>
-      <div class="about-card-label">Reciprocating Compression Share of Methane Emissions</div>
-    </div>
-    <div class="about-card">
-      <div class="about-card-num">8×25</div>
-      <div class="about-card-label">Foot ECC Skid Footprint — Compact Deployment</div>
-    </div>
-    <div class="about-card">
-      <div class="about-card-num">45Q</div>
-      <div class="about-card-label">Federal Tax Credit Eligible Technology</div>
-    </div>
-  </div>
-</section>
+<!-- OVERVIEW CARDS -->
+<div class="overview">
+  <a href="about.html" class="overview-card reveal">
+    <div class="oc-icon">⬡</div>
+    <div class="oc-title">About E4</div>
+    <p class="oc-desc">Next-generation emissions reduction engineered specifically for natural gas compressors — built to retrofit, not replace.</p>
+    <span class="oc-link">Learn More →</span>
+  </a>
+  <a href="products.html" class="overview-card reveal">
+    <div class="oc-icon">◎</div>
+    <div class="oc-title">Products</div>
+    <p class="oc-desc">Nine patented and patent-pending technologies spanning methane elimination, gas separation, carbon capture, and compression.</p>
+    <span class="oc-link">View Products →</span>
+  </a>
+  <a href="technology.html" class="overview-card reveal">
+    <div class="oc-icon">⟳</div>
+    <div class="oc-title">Technology</div>
+    <p class="oc-desc">From ultra-high-speed rotary mechanics to 3D-printed cryogenic heat exchangers — deep dives into the engineering behind our products.</p>
+    <span class="oc-link">Explore Tech →</span>
+  </a>
+  <a href="capture.html" class="overview-card reveal">
+    <div class="oc-icon">❄</div>
+    <div class="oc-title">Carbon Capture</div>
+    <p class="oc-desc">The ECC system captures CO₂ from engine exhaust, qualifies for 45Q tax credits up to $85/ton, and generates electricity from waste heat.</p>
+    <span class="oc-link">ECC Economics →</span>
+  </a>
+  <a href="partners.html" class="overview-card reveal">
+    <div class="oc-icon">◈</div>
+    <div class="oc-title">Partners</div>
+    <p class="oc-desc">Active engagement with National Fuel Gas, INNIO/Waukesha, Occidental, Siemens Energy, Chevron, and more.</p>
+    <span class="oc-link">See Partners →</span>
+  </a>
+  <a href="contact.html" class="overview-card reveal">
+    <div class="oc-icon">◷</div>
+    <div class="oc-title">Contact Us</div>
+    <p class="oc-desc">Evaluating a pilot? Exploring 45Q opportunities? Ready to discuss how E4 integrates with your existing assets?</p>
+    <span class="oc-link">Get in Touch →</span>
+  </a>
+</div>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="section-label">Product Portfolio</div>
-  <div class="products-intro">
-    <h2 class="section-h2">ENGINEERED<br>SOLUTIONS</h2>
-    <div>
-      <p style="color:var(--mist); line-height:1.9;">Our product suite addresses the full emissions profile of natural gas compression — from rod packing to exhaust gas, from wellhead to sales line. Each solution is modular, compact, and designed to retrofit existing infrastructure.</p>
-    </div>
-  </div>
-  <div class="products-grid">
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="band-stat reveal"><div class="band-num">6+</div><div class="band-label">Patents Granted &amp; Pending</div></div>
+  <div class="band-stat reveal"><div class="band-num">20%</div><div class="band-label">Reciprocating Compression Share of Total Methane Emissions</div></div>
+  <div class="band-stat reveal"><div class="band-num">8×25</div><div class="band-label">Foot ECC Skid — Compact Deployment Footprint</div></div>
+  <div class="band-stat reveal"><div class="band-num">45Q</div><div class="band-label">Federal Tax Credit Eligible Technology</div></div>
+</div>
 
-    <div class="product-card">
-      <div class="product-icon">⬡</div>
-      <div class="product-badge pending">Patent Pending</div>
-      <div class="product-name">Zero Methane Rod Packing</div>
-      <p class="product-desc">Externally pressurized dry gas packing using porous media technology. Nitrogen injection creates a gas film barrier — zero process gas fugitive emissions, zero oil contamination.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">◎</div>
-      <div class="product-badge pending">Patent Pending</div>
-      <div class="product-name">Oil-Free Piston Seals</div>
-      <p class="product-desc">High-pressure gas distributed through porous piston media creates a frictionless non-contacting seal — eliminating cylinder lubrication entirely and supporting the full piston assembly.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">⬤</div>
-      <div class="product-badge">Patented Apr 2023</div>
-      <div class="product-name">Exhaust Carbon Capture System (ECC)</div>
-      <p class="product-desc">Centrifugal cryogenic CO₂ separation from engine exhaust — no chemicals, supercritical liquid output at 1,100–5,000 psi. SOx, NOx, CO, and methane slip captured as product streams.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">◈</div>
-      <div class="product-badge presented">SPE ATCE 2023</div>
-      <div class="product-name">Hot Gas Bypass</div>
-      <p class="product-desc">Presented at SPE ATCE October 2023. Optimizes compressor operations by intelligently managing hot gas recirculation to improve efficiency and reduce thermal emissions stress.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">◷</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Rotary Scrubber / Separator</div>
-      <p class="product-desc">High-speed rotating separator turbine centrifugally forces liquid to the outer wall. Delivers sub-micron liquid-free gas through the top — modular and compact for any application.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">◉</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Fuel Gas Conditioner</div>
-      <p class="product-desc">Isentropic supersonic expansion stabilizes fuel Lower Heating Value and eliminates liquids from engine intake — extending cylinder life and optimizing combustion on raw well pad gas.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">⬢</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Centrifugal Production Separator</div>
-      <p class="product-desc">3-phase wellhead fluid separation (oil, water, gas) with integral oil stabilization compression. Delivers sub-atmospheric vapor pressure oil — zero flaring, lower CO₂e per BOE.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">⟳</div>
-      <div class="product-badge">Patented</div>
-      <div class="product-name">Moving Wall Compressor / Expander</div>
-      <p class="product-desc">Ultra-high-speed positive displacement rotary technology. Exceptional power density and efficiency — forms the core of the ECC system's compression and expansion stages.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-icon">❄</div>
-      <div class="product-badge">Development</div>
-      <div class="product-name">Cryo Centrifugal Separator</div>
-      <p class="product-desc">Cryogenic-rated rotary separation for CO₂ and acid gas streams. Operates at supercritical conditions — central component of the Exhaust Carbon Capture skid architecture.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- TECHNOLOGY -->
-<section id="technology">
-  <div class="section-label">Deep Dive</div>
-  <h2 class="section-h2" style="margin-bottom:3.5rem;">CORE<br>TECHNOLOGY</h2>
-  <div class="tech-layout">
-    <div class="tech-nav">
-      <button class="tech-nav-item active" onclick="showPanel('ecc')">ECC System</button>
-      <button class="tech-nav-item" onclick="showPanel('packing')">Rod Packing</button>
-      <button class="tech-nav-item" onclick="showPanel('scrubber')">Rotary Scrubber</button>
-      <button class="tech-nav-item" onclick="showPanel('mwc')">Moving Wall Tech</button>
-      <button class="tech-nav-item" onclick="showPanel('hx')">Heat Exchanger</button>
-    </div>
-    <div class="tech-panels">
-
-      <div class="tech-panel active" id="panel-ecc">
-        <h3>Exhaust Carbon Capture System</h3>
-        <p>The ECC skid is designed to match the footprint of a small to medium compressor package. All major high-speed components — including the CO₂ separator, Moving Wall Expander, and heat exchanger — mount on a single rotating shaft, minimizing complexity and maximizing uptime.</p>
-        <p>Using ultra-high-speed centrifugal separation, CO₂ is isolated from the exhaust stream without solvents or chemicals and discharged in supercritical liquid form at pipeline pressures. SOx, NOx, CO, and methane slip are simultaneously captured and released as separate product streams.</p>
-        <p>The system can also generate electrical power from waste heat via an integrated motor-generator, improving overall site economics.</p>
-        <div class="tech-specs">
-          <div class="tech-spec">
-            <div class="tech-spec-key">CO₂ Separation</div>
-            <div class="tech-spec-val">&gt;99% efficiency</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Output Pressure</div>
-            <div class="tech-spec-val">1,100 – 5,000 psi supercritical</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Skid Size</div>
-            <div class="tech-spec-val">8′ × 25′ compact footprint</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Capacity (15k hp station)</div>
-            <div class="tech-spec-val">75,000 tons/year CO₂</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-panel" id="panel-packing">
-        <h3>Zero Methane Rod Packing</h3>
-        <p>Reciprocating compression is responsible for nearly 20% of total methane emissions in the oil and gas sector. Newly installed conventional rod packing can leak up to 60 CFH of process gas; worn packing exceeds 900 CFH. E4's solution eliminates this entirely.</p>
-        <p>High-pressure nitrogen is injected into two separate porous media packings that encapsulate the rod. A microscopic gas film forms between the rod surface and the media — only pure nitrogen escapes to atmosphere. On shutdown, the packing forms a tight, leak-free mechanical seal with no process gas release.</p>
-        <p>The complementary Oil-Free Piston Seals distribute high-pressure gas through porous media on the piston, creating a frictionless non-contacting interface that eliminates cylinder oil lubrication entirely.</p>
-        <div class="tech-specs">
-          <div class="tech-spec">
-            <div class="tech-spec-key">Fugitive Emissions</div>
-            <div class="tech-spec-val">Zero — only nitrogen to atmosphere</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Seal Type</div>
-            <div class="tech-spec-val">Externally pressurized dry gas</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Lubrication</div>
-            <div class="tech-spec-val">Oil-free gas film</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Status</div>
-            <div class="tech-spec-val">Patent Pending</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-panel" id="panel-scrubber">
-        <h3>Rotary Scrubber / Separator</h3>
-        <p>The Axip-designed high-speed rotary scrubber provides superior gas-liquid separation in a compact, modular package. Fluid-laden gas enters through the bottom center and contacts a proprietary rotating separating turbine spinning at high velocity.</p>
-        <p>Centrifugal force drives liquid to the outer wall where it is discharged at high pressure. Liquid-free gas — cleansed to sub-micron particle levels — exits through the top center at line pressure. The modular design allows rapid deployment across wellhead, gathering, and compression applications.</p>
-        <div class="tech-specs">
-          <div class="tech-spec">
-            <div class="tech-spec-key">Separation Quality</div>
-            <div class="tech-spec-val">Sub-micron liquid removal</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Design</div>
-            <div class="tech-spec-val">Modular &amp; compact</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Liquid Discharge</div>
-            <div class="tech-spec-val">High pressure output</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Applications</div>
-            <div class="tech-spec-val">Fuel gas, compressor inlet, production</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-panel" id="panel-mwc">
-        <h3>Moving Wall Compressor / Expander</h3>
-        <p>The Moving Wall is a patented ultra-high-speed positive displacement rotary machine that functions as both a compressor and an expander. Its design delivers exceptional power density — far exceeding conventional rotary technologies at equivalent shaft speeds.</p>
-        <p>As the core mechanical component of the ECC system, the Moving Wall Expander recovers energy from the cryogenic CO₂ separation process while the Moving Wall Compressor drives the supercritical output stage — all on a shared rotating shaft.</p>
-        <div class="tech-specs">
-          <div class="tech-spec">
-            <div class="tech-spec-key">Type</div>
-            <div class="tech-spec-val">Positive displacement rotary</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Speed</div>
-            <div class="tech-spec-val">Ultra-high RPM</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Mode</div>
-            <div class="tech-spec-val">Compressor &amp; Expander</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Status</div>
-            <div class="tech-spec-val">Patented</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-panel" id="panel-hx">
-        <h3>3D Printed Lattice Heat Exchanger</h3>
-        <p>The ECC system's heat exchanger is custom-sized to each installation's exhaust temperatures and volumes. Fabricated using additive manufacturing with a lattice-optimized geometry, the design increases thermal power exchange by more than 85% compared to conventional heat exchangers in a dramatically more compact form factor.</p>
-        <p>The design operates across both high-temperature exhaust conditions and cryogenic separation stages within the same skid — eliminating the need for separate heat management equipment.</p>
-        <div class="tech-specs">
-          <div class="tech-spec">
-            <div class="tech-spec-key">Efficiency Improvement</div>
-            <div class="tech-spec-val">&gt;85% vs conventional</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Manufacturing</div>
-            <div class="tech-spec-val">3D printed lattice geometry</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Temperature Range</div>
-            <div class="tech-spec-val">High-temp exhaust to cryogenic</div>
-          </div>
-          <div class="tech-spec">
-            <div class="tech-spec-key">Sizing</div>
-            <div class="tech-spec-val">Custom per throughput</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CARBON CAPTURE -->
-<section id="capture">
-  <div class="section-label">45Q &amp; Carbon Economics</div>
-  <div class="capture-grid">
-    <div>
-      <h2 class="section-h2">THE CARBON<br>CAPTURE<br>OPPORTUNITY</h2>
-      <p style="color:var(--mist); margin-bottom:2rem;">Regulatory changes have dramatically improved the economics of carbon capture for compression operators. The IRA raised 45Q credits and lowered the minimum threshold — making E4's ECC system economically compelling for mid-size stations.</p>
-      <div class="credit-callout">
-        <h4>45Q Tax Credit Schedule (IRA)</h4>
-        <div class="credit-rows">
-          <div class="credit-row">
-            <span>Enhanced Oil Recovery (EOR)</span>
-            <span class="val">$60<small style="font-size:0.6em;color:var(--mist)">/ton</small></span>
-          </div>
-          <div class="credit-row">
-            <span>Geologic Sequestration</span>
-            <span class="val">$85<small style="font-size:0.6em;color:var(--mist)">/ton</small></span>
-          </div>
-          <div class="credit-row">
-            <span>Minimum Capture Threshold</span>
-            <span class="val">12,500<small style="font-size:0.6em;color:var(--mist)"> tons/yr</small></span>
-          </div>
-          <div class="credit-row">
-            <span>ECC Capacity (15k hp station)</span>
-            <span class="val">75,000<small style="font-size:0.6em;color:var(--mist)"> tons/yr</small></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="capture-metrics">
-      <div style="margin-bottom:1rem;">
-        <div class="section-label" style="margin-bottom:0.5rem;">Why ECC vs Electric Conversion</div>
-        <p style="color:var(--mist); font-size:0.88rem; line-height:1.85;">Electric drive conversion requires infrastructure investment, ongoing electricity cost, and generates no carbon credit revenue. E4's ECC system retrofits existing engines, generates 45Q credits, and can produce electricity from waste heat — improving net economics without replacing assets.</p>
-      </div>
-      <div class="metric-bar">
-        <div class="metric-label"><strong>Capital Efficiency vs Electric Conversion</strong><span>High</span></div>
-        <div class="metric-track"><div class="metric-fill" style="width:88%"></div></div>
-      </div>
-      <div class="metric-bar">
-        <div class="metric-label"><strong>45Q Credit Eligibility (Anthropogenic CO₂)</strong><span>Full</span></div>
-        <div class="metric-track"><div class="metric-fill" style="width:100%"></div></div>
-      </div>
-      <div class="metric-bar">
-        <div class="metric-label"><strong>Scope 1 &amp; 2 Reduction</strong><span>Yes</span></div>
-        <div class="metric-track"><div class="metric-fill" style="width:95%"></div></div>
-      </div>
-      <div class="metric-bar">
-        <div class="metric-label"><strong>Retrofit Complexity</strong><span>Low</span></div>
-        <div class="metric-track"><div class="metric-fill" style="width:30%"></div></div>
-      </div>
-      <div class="metric-bar">
-        <div class="metric-label"><strong>Operational Disruption</strong><span>Minimal</span></div>
-        <div class="metric-track"><div class="metric-fill" style="width:15%"></div></div>
-      </div>
-      <p style="font-size:0.75rem; color:var(--mid); margin-top:0.5rem;">Exhaust capture piping is analogous to standard waste heat recovery installations. Pilot data collected at active compressor stations.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section id="partners">
-  <div class="partners-intro">
-    <div class="section-label">Industry Engagement</div>
-    <h2 class="section-h2">STRATEGIC<br>INTEREST</h2>
-    <p>E4's technology has attracted attention across the full natural gas value chain — from major producers to OEM engine manufacturers and midstream operators.</p>
-  </div>
-  <div class="partners-grid">
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">National Fuel Gas</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">INNIO / Waukesha</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Occidental / OLCV</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Siemens Energy</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Kinder Morgan</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Chevron Technology</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Southwest Research Inst.</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">ConocoPhillips</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Exxon Mobil</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Archrock</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Williams</div></div>
-    <div class="partner-cell"><div class="partner-dot"></div><div class="partner-name">Solar Turbines (CAT)</div></div>
-  </div>
-  <p style="margin-top:2rem; font-size:0.78rem; color:var(--mid); letter-spacing:0.05em;">NDAs in place with select parties. INNIO / Waukesha has committed $500K–$700K toward component testing and pilot participation.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-left">
-    <div class="section-label">Get in Touch</div>
-    <h2>LET'S TALK<br><em>EMISSIONS.</em></h2>
-    <p style="margin-top:1.5rem;">Whether you're evaluating a pilot program, exploring 45Q credit opportunities, or want to understand how E4 technology integrates with your existing assets — we'd like to hear from you.</p>
-    <div style="margin-top:3rem; display:flex; flex-direction:column; gap:1.2rem;">
-      <div>
-        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.3rem;">Headquarters</div>
-        <div style="color:var(--mist); font-size:0.9rem;">E4 Energy Services, LLC</div>
-      </div>
-      <div>
-        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:0.3rem;">Focus Markets</div>
-        <div style="color:var(--mist); font-size:0.9rem;">Natural Gas Compression · Midstream · E&amp;P · LNG</div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div class="contact-form">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" placeholder="Your name">
-      </div>
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" placeholder="Your company">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="you@company.com">
-      </div>
-      <div class="form-group">
-        <label>Area of Interest</label>
-        <select>
-          <option value="">Select a product or topic…</option>
-          <option>Exhaust Carbon Capture (ECC)</option>
-          <option>Zero Methane Rod Packing</option>
-          <option>Rotary Scrubber / Separator</option>
-          <option>Moving Wall Compressor / Expander</option>
-          <option>Centrifugal Production Separator</option>
-          <option>45Q Tax Credit Guidance</option>
-          <option>Field Pilot Program</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="4" placeholder="Tell us about your compression assets and emissions goals…"></textarea>
-      </div>
-      <button class="btn-primary" style="width:100%; padding:1rem; font-size:0.85rem; cursor:pointer; border:none;" onclick="handleSubmit(this)">Send Message →</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">E4 <span>ENERGY</span> SERVICES</div>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#technology">Technology</a>
-    <a href="#capture">Carbon Capture</a>
-    <a href="#partners">Partners</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="footer-copy">© 2024 E4 Energy Services, LLC. All rights reserved.</div>
-</footer>
-
+<script src="shared.js"></script>
 <script>
-  // Particles
-  const container = document.getElementById('particles');
+  initPage('home');
+  const c = document.getElementById('particles');
   for (let i = 0; i < 30; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
-    p.style.cssText = `
-      left: ${Math.random()*100}%;
-      top: ${Math.random()*100}%;
-      --d: ${6 + Math.random()*10}s;
-      --delay: ${Math.random()*8}s;
-    `;
-    container.appendChild(p);
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${6+Math.random()*10}s;--delay:${Math.random()*8}s;`;
+    c.appendChild(p);
   }
-
-  // Tech nav
-  function showPanel(id) {
-    document.querySelectorAll('.tech-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tech-nav-item').forEach(b => b.classList.remove('active'));
-    document.getElementById('panel-' + id).classList.add('active');
-    event.currentTarget.classList.add('active');
-  }
-
-  // Contact form
-  function handleSubmit(btn) {
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = 'var(--accent2)';
-    btn.disabled = true;
-  }
-
-  // Intersection observer for subtle reveals
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.product-card, .about-card, .partner-cell').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
 </script>
 </body>
 </html>
