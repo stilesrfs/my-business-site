@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — E4 Energy Services</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .about-body { padding: 6rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+
+  .about-body p { color: var(--mist); font-size: 1rem; margin-bottom: 1.5rem; }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .stat-card {
+    background: var(--slate); border: 1px solid rgba(0,200,160,0.12);
+    padding: 2rem 1.5rem; position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .stat-card:hover { border-color: rgba(0,200,160,0.35); transform: translateY(-3px); }
+  .stat-card:hover::before { transform: scaleX(1); }
+  .sc-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+  .sc-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--mist); }
+
+  .mission-band {
+    background: var(--accent);
+    padding: 5rem 4rem;
+    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center;
+  }
+  .mission-band h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem;
+    line-height: 0.95; letter-spacing: 0.02em; color: var(--ink);
+  }
+  .mission-band p { color: var(--steel); font-size: 1rem; line-height: 1.85; }
+  .mission-band p + p { margin-top: 1rem; }
+
+  .approach { background: var(--ink); padding: 6rem 4rem; }
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,200,160,0.08); margin-top: 3rem; }
+  .approach-item {
+    background: var(--ink); padding: 2.5rem 2rem;
+    border-bottom: 2px solid transparent; transition: border-color 0.3s, background 0.3s;
+  }
+  .approach-item:hover { background: var(--steel); border-bottom-color: var(--accent); }
+  .ai-num {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem;
+  }
+  .ai-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+  .ai-desc { font-size: 0.85rem; color: var(--mist); line-height: 1.75; }
+</style>
+</head>
+<body>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-label page-hero-label">Who We Are</div>
+  <h1>BUILT FOR THE<br><em>COMPRESSION</em><br>INDUSTRY</h1>
+  <p>E4 Energy Services engineers and deploys next-generation emissions reduction products for natural gas compressors — combining patented mechanical innovation with proven field performance.</p>
+</div>
+
+<!-- ABOUT BODY -->
+<div class="about-body">
+  <div>
+    <div class="section-label">Our Focus</div>
+    <h2 class="section-h2">DECARBONIZE<br>WITHOUT<br>REPLACING</h2>
+    <p>The prevailing approach to compression decarbonization — electric drive conversion — requires significant capital, grid infrastructure, and ongoing electricity costs, while generating no carbon credit revenue. E4 takes a fundamentally different path.</p>
+    <p>Our technology portfolio is designed to retrofit existing reciprocating compressor assets, eliminating fugitive methane at the source, capturing exhaust CO₂ for 45Q credit monetization, and improving fuel efficiency — all without replacing the compressor engine.</p>
+    <p>Every E4 product is modular and compact, engineered to integrate into operating compression stations with minimal disruption and no shutdown requirements.</p>
+    <a href="products.html" class="btn-primary" style="margin-top:1rem;">View Our Products</a>
+  </div>
+  <div>
+    <div class="stat-grid">
+      <div class="stat-card reveal"><div class="sc-num">6+</div><div class="sc-label">Patents Granted &amp; Pending</div></div>
+      <div class="stat-card reveal"><div class="sc-num">20%</div><div class="sc-label">Compression Share of Total Methane Emissions</div></div>
+      <div class="stat-card reveal"><div class="sc-num">99%</div><div class="sc-label">CO₂ Separation Efficiency (ECC)</div></div>
+      <div class="stat-card reveal"><div class="sc-num">75K</div><div class="sc-label">Tons/Year CO₂ Extraction per 15k HP Station</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION BAND -->
+<div class="mission-band">
+  <h2>OUR MISSION</h2>
+  <div>
+    <p>Natural gas compression produces over 30 million metric tons of CO₂-equivalent annually — from exhaust emissions and fugitive methane combined. E4 Energy Services exists to address that directly, with technology that is economically advantaged, not economically penalized.</p>
+    <p>By making decarbonization revenue-generating through 45Q tax credits and operationally straightforward through compact retrofit designs, E4 removes the primary barriers that have slowed emissions reduction in the compression sector.</p>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<div class="approach">
+  <div class="section-label">Our Approach</div>
+  <h2 class="section-h2">THREE PILLARS</h2>
+  <div class="approach-grid">
+    <div class="approach-item reveal">
+      <div class="ai-num">01</div>
+      <div class="ai-title">Eliminate Fugitive Methane</div>
+      <p class="ai-desc">Zero-Methane Rod Packing and Oil-Free Piston Seals attack the primary source of process gas leaks in reciprocating compressors — at the rod and piston — achieving zero fugitive emissions without oil contamination.</p>
+    </div>
+    <div class="approach-item reveal">
+      <div class="ai-num">02</div>
+      <div class="ai-title">Capture Exhaust CO₂</div>
+      <p class="ai-desc">The ECC system separates greater than 99% of CO₂ from engine exhaust using centrifugal cryogenic technology — no chemicals, supercritical liquid output, 45Q-eligible, and capable of generating electrical power from waste heat.</p>
+    </div>
+    <div class="approach-item reveal">
+      <div class="ai-num">03</div>
+      <div class="ai-title">Optimize Gas &amp; Fluid Handling</div>
+      <p class="ai-desc">Rotary scrubbers, centrifugal production separators, and fuel gas conditioners improve operational efficiency, eliminate flaring, and reduce CO₂-equivalent per barrel of oil equivalent across the production and compression chain.</p>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>initPage('about');</script>
+</body>
+</html>

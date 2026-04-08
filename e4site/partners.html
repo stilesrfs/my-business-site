@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partners — E4 Energy Services</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .partners-body { padding: 6rem 4rem; }
+
+  .partners-body > p { color: var(--mist); max-width: 640px; margin-bottom: 4rem; font-size: 1rem; line-height: 1.9; }
+
+  /* featured partners */
+  .featured-partners { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 4rem; }
+  .partner-card {
+    background: var(--steel); border: 1px solid rgba(0,200,160,0.1);
+    padding: 2.5rem; transition: border-color 0.3s, transform 0.3s;
+  }
+  .partner-card:hover { border-color: rgba(0,200,160,0.35); transform: translateY(-3px); }
+  .partner-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.2rem; }
+  .partner-name-big {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 0.04em; line-height: 1.1;
+  }
+  .partner-status {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink); background: var(--accent);
+    padding: 0.2rem 0.5rem; white-space: nowrap;
+  }
+  .partner-status.committed { background: var(--gold); }
+  .partner-detail { font-size: 0.85rem; color: var(--mist); line-height: 1.75; }
+  .partner-interest {
+    margin-top: 1.2rem; padding-top: 1rem;
+    border-top: 1px solid rgba(143,165,187,0.1);
+  }
+  .partner-interest-label {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;
+  }
+  .interest-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .interest-tag {
+    border: 1px solid rgba(0,200,160,0.2); color: var(--mist);
+    padding: 0.2rem 0.6rem; font-size: 0.72rem; letter-spacing: 0.04em;
+  }
+
+  /* additional partners grid */
+  .additional-label {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
+    margin: 4rem 0 1.5rem;
+  }
+  .additional-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(143,165,187,0.08);
+  }
+  .additional-cell {
+    background: var(--ink); padding: 1.8rem 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    transition: background 0.2s;
+  }
+  .additional-cell:hover { background: var(--steel); }
+  .additional-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .additional-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem;
+    letter-spacing: 0.06em; color: var(--mist);
+    transition: color 0.2s;
+  }
+  .additional-cell:hover .additional-name { color: var(--white); }
+
+  .footnote {
+    margin-top: 2.5rem; font-size: 0.75rem; color: var(--mid);
+    line-height: 1.7; border-top: 1px solid rgba(143,165,187,0.08); padding-top: 1.5rem;
+  }
+
+  .cta-band {
+    background: var(--accent); margin-top: 5rem; padding: 4rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+  }
+  .cta-band h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--ink); }
+  .cta-band p { color: var(--steel); max-width: 440px; margin-top: 0.5rem; }
+  .btn-dark {
+    background: var(--ink); color: var(--white);
+    padding: 0.85rem 2rem; text-decoration: none;
+    font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s; white-space: nowrap; flex-shrink: 0;
+  }
+  .btn-dark:hover { background: var(--steel); }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="section-label page-hero-label">Industry Engagement</div>
+  <h1>STRATEGIC<br><em>INTEREST</em></h1>
+  <p>E4's technology has attracted engagement across the full natural gas value chain — from major E&amp;P operators and midstream companies to OEM engine manufacturers and research institutions.</p>
+</div>
+
+<div class="partners-body">
+  <p>Active discussions, NDAs, and pilot commitments with some of the largest names in natural gas production, transmission, and compression validate both the technology's readiness and the market's appetite for a non-electric path to emissions reduction.</p>
+
+  <div class="section-label">Active Engagements</div>
+  <h2 class="section-h2">KEY PARTNERS</h2>
+
+  <div class="featured-partners">
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">National Fuel Gas</div>
+        <div class="partner-status">Pilot Partner</div>
+      </div>
+      <p class="partner-detail">NDA in place. Reviewing pilot proposal. System design complete and patent awarded April 2023. Pilot to be conducted at active compressor station measuring CO₂ removal, processed CO₂ condition, electric generation, and overall efficiency.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Technology Interest</div>
+        <div class="interest-tags">
+          <span class="interest-tag">ECC System</span>
+          <span class="interest-tag">Pilot Program</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">INNIO / Waukesha</div>
+        <div class="partner-status committed">$500K–$700K Committed</div>
+      </div>
+      <p class="partner-detail">NDA in place. INNIO has agreed to supply $500K–$700K for Axip component testing and pilot participation in the ECC system. One of the world's leading natural gas engine OEMs — a partnership with significant validation and distribution implications.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Technology Interest</div>
+        <div class="interest-tags">
+          <span class="interest-tag">ECC System</span>
+          <span class="interest-tag">Component Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">Occidental / OLCV</div>
+        <div class="partner-status">Active</div>
+      </div>
+      <p class="partner-detail">NDA with Oxy Low Carbon Ventures. Meeting with Director of Reliability and Maintenance (Aug 2023). Follow-up with Corporate Technical Staff and OLCV (Nov 2023). Interest spans multiple product lines across Oxy's compression operations.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Technology Interest</div>
+        <div class="interest-tags">
+          <span class="interest-tag">Rotary Separator</span>
+          <span class="interest-tag">Compressor Seals</span>
+          <span class="interest-tag">ECC System</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">Siemens Energy</div>
+        <div class="partner-status">Active</div>
+      </div>
+      <p class="partner-detail">Meeting with Director of Strategy, Business Development and high-level team (Nov 2023). Interest from one of the world's largest energy technology companies in both compression seal technology and the full ECC system.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Technology Interest</div>
+        <div class="interest-tags">
+          <span class="interest-tag">Compressor Seals</span>
+          <span class="interest-tag">ECC System</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">Chevron Technology</div>
+        <div class="partner-status">Active</div>
+      </div>
+      <p class="partner-detail">Discussions with Carbon Capture Technology Strategy Manager, meeting in planning. Chevron's dedicated technology strategy team's engagement signals institutional-level interest in the ECC system as a viable capture pathway.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Technology Interest</div>
+        <div class="interest-tags">
+          <span class="interest-tag">Carbon Capture Strategy</span>
+          <span class="interest-tag">ECC System</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-card reveal">
+      <div class="partner-card-header">
+        <div class="partner-name-big">Southwest Research Institute</div>
+        <div class="partner-status">NDA</div>
+      </div>
+      <p class="partner-detail">NDA in place. SwRI is one of the premier independent research and development organizations in the US, with deep expertise in combustion engines, fluid dynamics, and emissions technology — a natural technical validation partner.</p>
+      <div class="partner-interest">
+        <div class="partner-interest-label">Engagement Type</div>
+        <div class="interest-tags">
+          <span class="interest-tag">Technical Validation</span>
+          <span class="interest-tag">Research Partnership</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="additional-label">Additional Industry Interest</div>
+  <div class="additional-grid">
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Kinder Morgan</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">ConocoPhillips</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Williams</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Northstar Energy</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Archrock</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Exxon Mobil</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Solar Turbines</div></div>
+    <div class="additional-cell reveal"><div class="additional-dot"></div><div class="additional-name">Kinder Morgan</div></div>
+  </div>
+
+  <p class="footnote">NDAs in place with select parties listed above. All engagement details reflect discussions as of Q4 2023. INNIO / Waukesha has committed $500K–$700K toward component testing and pilot participation in the ECC system.</p>
+
+  <div class="cta-band reveal">
+    <div>
+      <h3>INTERESTED IN A PARTNERSHIP OR PILOT?</h3>
+      <p>Whether you're an operator, OEM, or research institution — we'd like to understand how E4 technology fits your emissions strategy.</p>
+    </div>
+    <a href="contact.html" class="btn-dark">Contact Us →</a>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>initPage('partners');</script>
+</body>
+</html>
