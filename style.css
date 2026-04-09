@@ -50,7 +50,7 @@ nav {
 .nav-links a {
   color: var(--mist);
   text-decoration: none;
-  font-size: 1.01rem;
+  font-size: 1.35rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -76,7 +76,7 @@ nav {
   padding: 0.85rem 2rem;
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.28rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -91,7 +91,7 @@ nav {
   color: var(--mist);
   padding: 0.85rem 2rem;
   font-family: 'DM Sans', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.28rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -102,7 +102,7 @@ nav {
 /* ── SECTION LABELS ── */
 .section-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.91rem;
+  font-size: 1.05rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--accent);
@@ -170,7 +170,7 @@ footer {
 .footer-logo span { color: var(--accent); }
 .footer-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
 .footer-links a {
-  font-size: 0.94rem;
+  font-size: 1.25rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mist);
@@ -178,7 +178,7 @@ footer {
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--accent); }
-.footer-copy { font-size: 0.91rem; color: var(--mid); letter-spacing: 0.05em; }
+.footer-copy { font-size: 1.05rem; color: var(--mid); letter-spacing: 0.05em; }
 
 /* ── MARQUEE ── */
 .marquee-wrap { background: var(--accent); overflow: hidden; padding: 0.85rem 0; }
@@ -189,7 +189,7 @@ footer {
 }
 .marquee-track span {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.24rem;
+  font-size: 1.43rem;
   letter-spacing: 0.12em;
   color: var(--ink);
   flex-shrink: 0;
