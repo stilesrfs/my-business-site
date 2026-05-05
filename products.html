@@ -1,202 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products — E4 Energy Services</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .products-body { padding: 5rem 4rem; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — E4 Energy Services, LLC</title>
+  <meta name="description" content="E4 Energy Services product portfolio: Zero Methane Rod Packing, Oil-Free Piston Seals, Rotary Scrubbers, Fuel Stabilizers, and Exhaust Carbon Capture.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .products-hero {
+      background: linear-gradient(135deg, var(--dark-navy) 0%, #0d3d6b 100%);
+      padding: 5rem 2rem 4rem;
+    }
 
-  .filter-bar {
-    display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3.5rem;
-  }
-  .filter-btn {
-    background: none; border: 1px solid rgba(143,165,187,0.25);
-    color: var(--mist); padding: 0.4rem 1rem;
-    font-family: 'DM Mono', monospace; font-size: 1.32rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(0,200,160,0.06); }
+    .product-section {
+      padding: 5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .product-section:nth-child(even) { background: var(--off-white); }
 
-  .products-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: rgba(0,200,160,0.07);
-    border: 1px solid rgba(0,200,160,0.07);
-  }
+    .product-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
 
-  .product-card {
-    background: var(--ink); padding: 2.5rem 2rem;
-    position: relative; overflow: hidden;
-    transition: background 0.3s;
-  }
-  .product-card::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,200,160,0.04) 0%, transparent 60%);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .product-card:hover { background: var(--steel); }
-  .product-card:hover::after { opacity: 1; }
-  .product-card.hidden { display: none; }
+    .product-number {
+      font-family: var(--font-head);
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--border);
+      line-height: 1;
+      min-width: 60px;
+      color: rgba(15,76,129,0.15);
+    }
 
-  .product-icon {
-    width: 44px; height: 44px;
-    border: 1px solid rgba(0,200,160,0.3);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.5rem; font-size: 1.3rem;
-  }
-  .product-badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace; font-size: 1.35rem;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--ink); background: var(--accent);
-    padding: 0.2rem 0.5rem; margin-bottom: 1rem;
-  }
-  .product-badge.pending { background: var(--gold); }
-  .product-badge.presented { background: var(--mid); color: var(--ice); }
+    .product-title-block h2 {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
 
-  .product-name {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
-    letter-spacing: 0.04em; margin-bottom: 0.8rem; line-height: 1.1;
-  }
-  .product-desc { font-size: 1.25rem; color: var(--mist); line-height: 1.75; }
+    .product-title-block .badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
 
-  .product-footer {
-    margin-top: 1.2rem; padding-top: 1rem;
-    border-top: 1px solid rgba(143,165,187,0.1);
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .product-category {
-    font-family: 'DM Mono', monospace; font-size: 1.35rem;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid);
-  }
+    .product-body {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
 
-  .cta-band {
-    background: var(--steel); margin-top: 5rem;
-    padding: 4rem; display: flex; justify-content: space-between; align-items: center;
-    border: 1px solid rgba(0,200,160,0.12);
-  }
-  .cta-band h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; }
-  .cta-band p { color: var(--mist); max-width: 440px; margin-top: 0.5rem; }
-</style>
+    .product-desc p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: '▸';
+      color: var(--navy);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .product-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .spec-box {
+      background: var(--dark-navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .spec-box h4 {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light-blue);
+      margin-bottom: 1rem;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+    }
+    .spec-item:last-child { border-bottom: none; }
+    .spec-item .spec-label { color: rgba(191,195,199,0.65); }
+    .spec-item .spec-val { color: var(--white); font-weight: 600; }
+
+    .benefit-box {
+      background: rgba(15,76,129,0.07);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .benefit-box h4 {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-box p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .product-body { grid-template-columns: 1fr; }
+      .product-header { flex-direction: column; gap: 0.5rem; }
+      .product-number { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
 
-<div class="page-hero">
-  <div class="section-label page-hero-label">Product Portfolio</div>
-  <h1>ENGINEERED<br><em>SOLUTIONS</em></h1>
-  <p>Nine patented and patent-pending technologies spanning methane elimination, gas separation, fluid management, carbon capture, and advanced compression — all designed to retrofit existing assets.</p>
+  <!-- HERO -->
+  <section class="products-hero">
+    <div class="section-inner">
+      <div class="hero-eyebrow" style="color:var(--light-blue);margin-bottom:1rem;">
+        <span style="display:block;width:32px;height:2px;background:var(--light-blue);"></span>
+        Product Portfolio
+      </div>
+      <h1 style="font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;line-height:1.05;margin-bottom:1.25rem;">
+        Engineered for <em style="font-style:normal;color:var(--light-blue);">Zero Emissions</em><br>Compression
+      </h1>
+      <p style="color:var(--light-gray);font-size:1.05rem;max-width:620px;line-height:1.7;">
+        Every E4 product is designed around a single principle: eliminate the primary sources of methane and carbon emissions from natural gas compression infrastructure, without sacrificing performance or reliability.
+      </p>
+    </div>
+  </section>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Products</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT 1: ROD PACKING -->
+  <section class="product-section" id="rod-packing">
+    <div class="section-inner">
+      <div class="product-header">
+        <div class="product-number">01</div>
+        <div class="product-title-block">
+          <h2>Zero Methane Rod Packing</h2>
+          <div class="badges">
+            <span class="card-badge badge-patent">Patent Pending</span>
+            <span class="tag">Fugitive Emissions</span>
+            <span class="tag">Reciprocating Compressors</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-desc">
+          <p>The new externally pressurized dry gas rod packing provides zero fugitive emissions of process gases in reciprocating compressors. High-pressure nitrogen is injected into two separate porous media packings, encapsulating the rod and allowing a very small gas film to form between the rod and the media.</p>
+          <p>The result: only pure nitrogen leaks to atmosphere — never process gas. When the compressor shuts down, the packing forms a tight, leak-free mechanical seal automatically.</p>
+          <p><strong>Why it matters:</strong> Newly installed conventional rod packing can leak up to 60 CFH. Worn packing can reach 900 CFH or higher. Rod packing is the single largest source of fugitive methane in compression operations.</p>
+          <ul class="feature-list">
+            <li>Zero fugitive process gas emissions to atmosphere</li>
+            <li>Dual porous media nitrogen injection barrier</li>
+            <li>Leak-free shutdown sealing via mechanical closure</li>
+            <li>Compatible with existing reciprocating compressor frames</li>
+            <li>Eliminates packing vent gas capture/routing requirements</li>
+            <li>Addresses EPA Quad Oa / NSPS compliance obligations</li>
+          </ul>
+        </div>
+        <div class="product-sidebar">
+          <div class="spec-box">
+            <h4>Key Technical Parameters</h4>
+            <div class="spec-item"><span class="spec-label">Seal Gas</span><span class="spec-val">Nitrogen (N₂)</span></div>
+            <div class="spec-item"><span class="spec-label">Emissions to Atmosphere</span><span class="spec-val">Zero CH₄</span></div>
+            <div class="spec-item"><span class="spec-label">Shutdown Mode</span><span class="spec-val">Mechanical Seal</span></div>
+            <div class="spec-item"><span class="spec-label">IP Status</span><span class="spec-val">Patent Pending</span></div>
+            <div class="spec-item"><span class="spec-label">Application</span><span class="spec-val">Reciprocating Compressors</span></div>
+          </div>
+          <div class="benefit-box">
+            <h4>Emissions Impact</h4>
+            <p>Reciprocating compression contributes nearly 20% of total methane emissions from the oil &amp; gas sector. Zero Methane Rod Packing eliminates this at the source.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT 2: PISTON SEALS -->
+  <section class="product-section" id="piston-seals">
+    <div class="section-inner">
+      <div class="product-header">
+        <div class="product-number">02</div>
+        <div class="product-title-block">
+          <h2>Oil-Free Piston Seals</h2>
+          <div class="badges">
+            <span class="card-badge badge-patent">Patent Pending</span>
+            <span class="tag">Oil Elimination</span>
+            <span class="tag">Reciprocating Compressors</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-desc">
+          <p>High-pressure gas from the compressor cylinder is distributed through a porous media on the piston, forming a thin film of gas between the cylinder bore and the piston. This frictionless, non-contacting seal provides full piston assembly support — without any oil lubrication.</p>
+          <p>The technology eliminates two simultaneous problems: fugitive methane leakage through conventional piston rings, and the oil consumption and contamination associated with lubricated cylinders. The result is a cleaner, lower-maintenance compression train.</p>
+          <ul class="feature-list">
+            <li>Frictionless gas film between piston and cylinder bore</li>
+            <li>Fully supports piston assembly load — no oil required</li>
+            <li>Eliminates cylinder lubrication system and associated maintenance</li>
+            <li>Reduces hydrocarbon carryover into downstream systems</li>
+            <li>Compatible with non-lube cylinder configurations</li>
+            <li>Reduces overall cylinder wear and maintenance intervals</li>
+          </ul>
+        </div>
+        <div class="product-sidebar">
+          <div class="spec-box">
+            <h4>Key Technical Parameters</h4>
+            <div class="spec-item"><span class="spec-label">Lubrication Required</span><span class="spec-val">None</span></div>
+            <div class="spec-item"><span class="spec-label">Seal Mechanism</span><span class="spec-val">Gas Film (Porous Media)</span></div>
+            <div class="spec-item"><span class="spec-label">Contact Type</span><span class="spec-val">Non-Contacting</span></div>
+            <div class="spec-item"><span class="spec-label">IP Status</span><span class="spec-val">Patent Pending</span></div>
+          </div>
+          <div class="benefit-box">
+            <h4>Operational Benefit</h4>
+            <p>Piston seals and rod packing together represent the primary source of fugitive methane and oil consumption in compression. E4 addresses both with a matched product pair.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT 3: ROTARY SCRUBBER -->
+  <section class="product-section" id="rotary">
+    <div class="section-inner">
+      <div class="product-header">
+        <div class="product-number">03</div>
+        <div class="product-title-block">
+          <h2>Rotary Scrubber / Separator</h2>
+          <div class="badges">
+            <span class="card-badge badge-patent">New Product</span>
+            <span class="tag">Gas/Liquid Separation</span>
+            <span class="tag">Modular</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-desc">
+          <p>E4's high-speed rotary scrubber provides superior gas-liquid separation using centrifugal force rather than conventional gravitational or mist-pad separation. The new design is modular and compact, making it deployable at well pads and compression stations with minimal footprint.</p>
+          <p>Fluid-laden gas enters through the bottom center of the rotary scrubber where it contacts a proprietary high-velocity rotating separating turbine. Liquid is centrifugally forced to the outer wall and discharged at high pressure — the liquid-free gas stream (sub-micron particle size) exits through the top center at pressure.</p>
+          <p>The rotary scrubber product family includes variants for degassing, two-phase separation, multi-phase production separation, acid gas (CO₂, H₂S) separation, and cryogenic centrifugal separation.</p>
+          <ul class="feature-list">
+            <li>Sub-micron liquid removal from gas stream</li>
+            <li>High-pressure liquid discharge — no pump required for re-injection</li>
+            <li>Modular, compact design for well pad and station deployment</li>
+            <li>Available in 2-phase, multi-phase, and acid gas variants</li>
+            <li>No conventional demisters, baffles, or coalescing media</li>
+          </ul>
+        </div>
+        <div class="product-sidebar">
+          <div class="spec-box">
+            <h4>Product Variants</h4>
+            <div class="spec-item"><span class="spec-label">2-Phase</span><span class="spec-val">Gas / Liquid</span></div>
+            <div class="spec-item"><span class="spec-label">Multi-Phase</span><span class="spec-val">Gas / Oil / Water</span></div>
+            <div class="spec-item"><span class="spec-label">Acid Gas</span><span class="spec-val">CO₂, H₂S Separation</span></div>
+            <div class="spec-item"><span class="spec-label">Cryo</span><span class="spec-val">Cryogenic Centrifugal</span></div>
+            <div class="spec-item"><span class="spec-label">Fuel</span><span class="spec-val">Fuel Gas Conditioning</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT 4: FUEL STABILIZER -->
+  <section class="product-section" id="fuel">
+    <div class="section-inner">
+      <div class="product-header">
+        <div class="product-number">04</div>
+        <div class="product-title-block">
+          <h2>Fuel Gas Stabilizer / Conditioner</h2>
+          <div class="badges">
+            <span class="card-badge badge-patent">New Product</span>
+            <span class="tag">Engine Protection</span>
+            <span class="tag">Fuel Quality</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-desc">
+          <p>The rotary fuel gas conditioner stabilizes fuel at a constant Lower Heating Value (LHV) and eliminates liquids from entering the engine — extending cylinder life and reducing unplanned downtime at well pad gas-driven compression sites.</p>
+          <p>Raw well pad gas is accelerated through fuel conditioner nozzles into an expander that drives the rotor. The gas undergoes isentropic expansion at supersonic speeds, dropping temperature into the phase envelope — condensing and nucleating hydrocarbon particles. Under high centrifugal loading, these particles rapidly collect on the outer wall, where liquid is recovered through a standard pump diffuser at high pressure and routed to multiple possible recovery destinations.</p>
+          <ul class="feature-list">
+            <li>Stabilizes fuel Lower Heating Value for consistent combustion</li>
+            <li>Eliminates liquid carry-over into engine manifold</li>
+            <li>Supersonic isentropic expansion — no external refrigeration</li>
+            <li>High-pressure liquid recovery for re-injection or capture</li>
+            <li>Extends engine cylinder life and reduces maintenance</li>
+            <li>Designed for well pad gas composition variability</li>
+          </ul>
+        </div>
+        <div class="product-sidebar">
+          <div class="spec-box">
+            <h4>Key Benefits</h4>
+            <div class="spec-item"><span class="spec-label">Fuel Quality</span><span class="spec-val">Constant LHV</span></div>
+            <div class="spec-item"><span class="spec-label">Liquid Removal</span><span class="spec-val">Sub-Micron</span></div>
+            <div class="spec-item"><span class="spec-label">Compression Method</span><span class="spec-val">Isentropic Expansion</span></div>
+            <div class="spec-item"><span class="spec-label">Liquid Outlet</span><span class="spec-val">High Pressure Recovery</span></div>
+          </div>
+          <div class="benefit-box">
+            <h4>Engine Life Extension</h4>
+            <p>Liquid slugging from raw well gas is a primary driver of unscheduled engine downtime. The fuel stabilizer addresses root cause — not symptoms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT 5: PRODUCTION SEPARATOR -->
+  <section class="product-section" id="separator">
+    <div class="section-inner">
+      <div class="product-header">
+        <div class="product-number">05</div>
+        <div class="product-title-block">
+          <h2>Multi-Phase Centrifugal Production Separator</h2>
+          <div class="badges">
+            <span class="card-badge badge-patent">Submitted ATCE 2024</span>
+            <span class="tag">Production</span>
+            <span class="tag">Zero Flaring</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-desc">
+          <p>The centrifugal production separator enables zero-methane emissions well pad production. By processing produced fluids through centrifugal separation at sub-atmospheric vapor pressure, the system eliminates the need for flaring associated with conventional production separation.</p>
+          <p>The result is sub-atmospheric vapor pressure oil production — reducing kg CO₂e per barrel of oil equivalent (BOE) and enabling operators to eliminate flash gas emissions at the wellhead. Submitted to SPE ATCE October 2024.</p>
+          <ul class="feature-list">
+            <li>Zero methane emissions well pad production configuration</li>
+            <li>Eliminates flash gas flaring at separation</li>
+            <li>Sub-atmospheric vapor pressure oil output</li>
+            <li>Reduces kg CO₂e / BOE across production lifecycle</li>
+            <li>High-speed centrifugal separation — no conventional separator vessels</li>
+          </ul>
+        </div>
+        <div class="product-sidebar">
+          <div class="spec-box">
+            <h4>Emissions Profile</h4>
+            <div class="spec-item"><span class="spec-label">Flaring Required</span><span class="spec-val">None</span></div>
+            <div class="spec-item"><span class="spec-label">Flash Gas</span><span class="spec-val">Eliminated</span></div>
+            <div class="spec-item"><span class="spec-label">Product</span><span class="spec-val">Sub-atm VP Oil</span></div>
+            <div class="spec-item"><span class="spec-label">Methane Emissions</span><span class="spec-val">Zero</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Interested in a Specific Product?</h2>
+    <p>Contact our engineering team to discuss application requirements, field pilot opportunities, or OEM integration.</p>
+    <a href="contact.html" class="btn btn-primary" style="font-size:0.9rem;padding:1rem 2.5rem;">Request Product Information</a>
+  </div>
+
 </div>
-
-<div class="products-body">
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterCards('all', this)">All Products</button>
-    <button class="filter-btn" onclick="filterCards('methane', this)">Methane Elimination</button>
-    <button class="filter-btn" onclick="filterCards('separation', this)">Gas &amp; Fluid Separation</button>
-    <button class="filter-btn" onclick="filterCards('capture', this)">Carbon Capture</button>
-    <button class="filter-btn" onclick="filterCards('compression', this)">Compression</button>
-  </div>
-
-  <div class="products-grid" id="products-grid">
-
-    <div class="product-card reveal" data-cat="methane">
-      <div class="product-icon">⬡</div>
-      <div class="product-badge pending">Patent Pending</div>
-      <div class="product-name">Zero Methane Rod Packing</div>
-      <p class="product-desc">Externally pressurized dry gas packing using porous media technology. Nitrogen injection creates a gas film barrier around the rod — zero process gas fugitive emissions, zero oil contamination. On shutdown, the packing forms a tight leak-free mechanical seal.</p>
-      <div class="product-footer"><span class="product-category">Methane Elimination</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="methane">
-      <div class="product-icon">◎</div>
-      <div class="product-badge pending">Patent Pending</div>
-      <div class="product-name">Oil-Free Piston Seals</div>
-      <p class="product-desc">High-pressure gas distributed through porous media on the piston creates a frictionless non-contacting seal that fully supports the piston assembly — eliminating cylinder lubrication entirely and all associated oil consumption and emissions.</p>
-      <div class="product-footer"><span class="product-category">Methane Elimination</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="capture">
-      <div class="product-icon">⬤</div>
-      <div class="product-badge">Patented Apr 2023</div>
-      <div class="product-name">Exhaust Carbon Capture System (ECC)</div>
-      <p class="product-desc">Centrifugal cryogenic CO₂ separation from engine exhaust — no chemicals, no solvents. Supercritical liquid CO₂ output at 1,100–5,000 psi. SOx, NOx, CO, and methane slip captured simultaneously as separate product streams. 45Q-eligible.</p>
-      <div class="product-footer"><span class="product-category">Carbon Capture</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="separation">
-      <div class="product-icon">◈</div>
-      <div class="product-badge presented">SPE ATCE 2023</div>
-      <div class="product-name">Hot Gas Bypass</div>
-      <p class="product-desc">Presented at SPE ATCE October 2023. Optimizes compressor operations by intelligently managing hot gas recirculation, improving efficiency and reducing thermal emissions stress on downstream components.</p>
-      <div class="product-footer"><span class="product-category">Gas Management</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="separation">
-      <div class="product-icon">◷</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Rotary Scrubber / Separator</div>
-      <p class="product-desc">High-speed rotating separator turbine centrifugally forces liquid to the outer wall. Delivers sub-micron liquid-free gas at line pressure. Modular and compact for compressor inlet, fuel gas conditioning, and production separation applications.</p>
-      <div class="product-footer"><span class="product-category">Gas &amp; Fluid Separation</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="separation">
-      <div class="product-icon">◉</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Fuel Gas Conditioner</div>
-      <p class="product-desc">Isentropic supersonic expansion stabilizes fuel Lower Heating Value and eliminates liquids from engine intake. Extends cylinder life, optimizes combustion on raw well pad gas, and reduces unplanned downtime from liquid carryover.</p>
-      <div class="product-footer"><span class="product-category">Gas &amp; Fluid Separation</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="separation">
-      <div class="product-icon">⬢</div>
-      <div class="product-badge">Available</div>
-      <div class="product-name">Centrifugal Production Separator</div>
-      <p class="product-desc">3-phase wellhead fluid separation (oil, water, gas) with integral oil stabilization compression. Sub-atmospheric vapor pressure oil eliminates associated gas — zero flaring, lower CO₂e per BOE, and monetization of previously flared gas.</p>
-      <div class="product-footer"><span class="product-category">Gas &amp; Fluid Separation</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="compression">
-      <div class="product-icon">⟳</div>
-      <div class="product-badge">Patented</div>
-      <div class="product-name">Moving Wall Compressor / Expander</div>
-      <p class="product-desc">Ultra-high-speed positive displacement rotary technology delivering exceptional power density and efficiency compared to existing compressor designs. Functions as both compressor and expander — core of the ECC system architecture.</p>
-      <div class="product-footer"><span class="product-category">Compression</span></div>
-    </div>
-
-    <div class="product-card reveal" data-cat="capture">
-      <div class="product-icon">❄</div>
-      <div class="product-badge">Development</div>
-      <div class="product-name">Cryo Centrifugal Separator</div>
-      <p class="product-desc">Cryogenic-rated rotary separation for CO₂ and acid gas streams (CO₂, H₂S). Operates at supercritical conditions with greater than 99% separation efficiency. Central to the ECC skid's final separation and pressurization stage.</p>
-      <div class="product-footer"><span class="product-category">Carbon Capture</span></div>
-    </div>
-
-  </div>
-
-  <div class="cta-band reveal">
-    <div>
-      <h3>READY TO DISCUSS YOUR APPLICATION?</h3>
-      <p>Tell us about your compressor assets and emissions targets — we'll identify which E4 products are the right fit.</p>
-    </div>
-    <a href="contact.html" class="btn-primary">Contact Us →</a>
-  </div>
-</div>
-
-<script src="shared.js"></script>
-<script>
-  initPage('products');
-  function filterCards(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.product-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-  }
-</script>
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
 </body>
 </html>

@@ -1,120 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — E4 Energy Services</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .about-body { padding: 6rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — E4 Energy Services, LLC</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(155deg, var(--dark-navy) 0%, #0e3e6e 100%);
+      padding: 5rem 2rem 4rem;
+    }
 
-  .about-body p { color: var(--mist); font-size: 1rem; margin-bottom: 1.5rem; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
 
-  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-  .stat-card {
-    background: var(--slate); border: 1px solid rgba(0,200,160,0.12);
-    padding: 2rem 1.5rem; position: relative; overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .stat-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 2px; background: var(--accent);
-    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
-  }
-  .stat-card:hover { border-color: rgba(0,200,160,0.35); transform: translateY(-3px); }
-  .stat-card:hover::before { transform: scaleX(1); }
-  .sc-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
-  .sc-label { font-size: 1.35rem; letter-spacing: 0.06em; color: var(--mist); }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+    .team-card:hover { box-shadow: var(--shadow); }
 
-  .mission-band {
-    background: var(--accent);
-    padding: 5rem 4rem;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center;
-  }
-  .mission-band h2 {
-    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem;
-    line-height: 0.95; letter-spacing: 0.02em; color: var(--ink);
-  }
-  .mission-band p { color: var(--steel); font-size: 1rem; line-height: 1.85; }
-  .mission-band p + p { margin-top: 1rem; }
+    .team-card-header {
+      background: linear-gradient(135deg, var(--dark-navy), var(--navy));
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-  .approach { background: var(--ink); padding: 6rem 4rem; }
-  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,200,160,0.08); margin-top: 3rem; }
-  .approach-item {
-    background: var(--ink); padding: 2.5rem 2rem;
-    border-bottom: 2px solid transparent; transition: border-color 0.3s, background 0.3s;
-  }
-  .approach-item:hover { background: var(--steel); border-bottom-color: var(--accent); }
-  .ai-num {
-    font-family: 'DM Mono', monospace; font-size: 1.28rem;
-    letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem;
-  }
-  .ai-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
-  .ai-desc { font-size: 1.28rem; color: var(--mist); line-height: 1.75; }
-</style>
+    .team-avatar {
+      width: 60px; height: 60px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    .team-title-block h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-blue);
+    }
+
+    .team-card-body {
+      padding: 1.5rem;
+    }
+    .team-card-body p {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      padding: 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      min-width: 44px;
+    }
+
+    .value-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      margin-bottom: 0.5rem;
+    }
+    .value-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* Tagline feature */
+    .tagline-feature {
+      background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 100%);
+      border-radius: var(--radius);
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+    .tagline-feature .tline {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .tagline-feature .tline span { color: var(--light-blue); }
+
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="section-label page-hero-label">Who We Are</div>
-  <h1>BUILT FOR THE<br><em>COMPRESSION</em><br>INDUSTRY</h1>
-  <p>E4 Energy Services engineers and deploys next-generation emissions reduction products for natural gas compressors — combining patented mechanical innovation with proven field performance.</p>
-</div>
+  <section class="about-hero">
+    <div class="section-inner">
+      <div class="hero-eyebrow" style="color:var(--light-blue);margin-bottom:1rem;">
+        <span style="display:block;width:32px;height:2px;background:var(--light-blue);"></span>
+        About E4
+      </div>
+      <h1 style="font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;line-height:1.05;margin-bottom:1.25rem;">
+        Built to Solve<br>
+        <span style="color:var(--light-blue);">Real Field Problems</span>
+      </h1>
+      <p style="color:var(--light-gray);font-size:1.05rem;max-width:600px;line-height:1.7;">
+        E4 Energy Services is a technology company and successor to a long legacy of compression industry innovation — from E2 through E3, now into E4. We build products that field engineers actually want to use, not theoretical solutions.
+      </p>
+    </div>
+  </section>
 
-<!-- ABOUT BODY -->
-<div class="about-body">
-  <div>
-    <div class="section-label">Our Focus</div>
-    <h2 class="section-h2">DECARBONIZE<br>WITHOUT<br>REPLACING</h2>
-    <p>The prevailing approach to compression decarbonization — electric drive conversion — requires significant capital, grid infrastructure, and ongoing electricity costs, while generating no carbon credit revenue. E4 takes a fundamentally different path.</p>
-    <p>Our technology portfolio is designed to retrofit existing reciprocating compressor assets, eliminating fugitive methane at the source, capturing exhaust CO₂ for 45Q credit monetization, and improving fuel efficiency — all without replacing the compressor engine.</p>
-    <p>Every E4 product is modular and compact, engineered to integrate into operating compression stations with minimal disruption and no shutdown requirements.</p>
-    <a href="products.html" class="btn-primary" style="margin-top:1rem;">View Our Products</a>
-  </div>
-  <div>
-    <div class="stat-grid">
-      <div class="stat-card reveal"><div class="sc-num">6+</div><div class="sc-label">Patents Granted &amp; Pending</div></div>
-      <div class="stat-card reveal"><div class="sc-num">20%</div><div class="sc-label">Compression Share of Total Methane Emissions</div></div>
-      <div class="stat-card reveal"><div class="sc-num">99%</div><div class="sc-label">CO₂ Separation Efficiency (ECC)</div></div>
-      <div class="stat-card reveal"><div class="sc-num">75K</div><div class="sc-label">Tons/Year CO₂ Extraction per 15k HP Station</div></div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a><span>›</span>
+      <span>About</span>
     </div>
   </div>
-</div>
 
-<!-- MISSION BAND -->
-<div class="mission-band">
-  <h2>OUR MISSION</h2>
-  <div>
-    <p>Natural gas compression produces over 30 million metric tons of CO₂-equivalent annually — from exhaust emissions and fugitive methane combined. E4 Energy Services exists to address that directly, with technology that is economically advantaged, not economically penalized.</p>
-    <p>By making decarbonization revenue-generating through 45Q tax credits and operationally straightforward through compact retrofit designs, E4 removes the primary barriers that have slowed emissions reduction in the compression sector.</p>
+  <!-- MISSION -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <div class="section-label">Our Mission</div>
+          <h2 class="section-title">Enabling Natural Gas to Be Part of the Clean Energy Future</h2>
+          <p style="font-size:0.95rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem;">
+            E4 Energy Services exists at the intersection of practical engineering and environmental urgency. Natural gas compression is essential infrastructure — but it's also responsible for a disproportionate share of methane and carbon emissions from the oil &amp; gas sector.
+          </p>
+          <p style="font-size:0.95rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem;">
+            We build the technology that makes compression cleaner. Not by replacing compression with something else — but by solving the specific engineering problems that cause compression to emit what it emits. Rod packing that vents methane. Piston seals that require oil and leak. Exhaust stacks that vent CO₂ when that CO₂ could be captured and sold.
+          </p>
+          <p style="font-size:0.95rem;color:var(--text-mid);line-height:1.75;">
+            Our founders have deep roots in the compression industry. The technology we build is informed by decades of understanding what actually happens at a compressor station — and what operators actually need to make emissions reduction work in the field.
+          </p>
+        </div>
+        <div>
+          <div class="tagline-feature">
+            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--light-blue);margin-bottom:1.5rem;">Company Tagline</p>
+            <div class="tline">Powering Today.<br><span>Building Tomorrow.</span></div>
+          </div>
+          <div style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div style="padding:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);text-align:center;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy);">3+</div>
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);">Granted Patents</div>
+            </div>
+            <div style="padding:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);text-align:center;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy);">10+</div>
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);">Active NDAs</div>
+            </div>
+            <div style="padding:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);text-align:center;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy);">2</div>
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);">SPE Presentations</div>
+            </div>
+            <div style="padding:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);text-align:center;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy);">$700K</div>
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);">OEM Pilot Commitment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Leadership</div>
+      <h2 class="section-title">Product Development Team</h2>
+      <p class="section-subtitle">E4's product development is led by engineers with deep domain expertise in compression, rotating machinery, and emissions systems.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="team-avatar">JG</div>
+            <div class="team-title-block">
+              <h3>John Guoynes</h3>
+              <div class="team-role">VP Product Development</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <p>Leads E4's product development program, including the Exhaust Carbon Capture System, Zero Methane Rod Packing, Oil-Free Piston Seals, and the broader new technology portfolio. Presented Hot Gas Bypass technology at SPE–ATCE October 2023.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="team-avatar">DS</div>
+            <div class="team-title-block">
+              <h3>David Stiles</h3>
+              <div class="team-role">Chief Engineer</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <p>Chief Engineer responsible for the technical design and development of E4's rotating machinery and emissions technology platform. Principal engineer on the ECC system, Moving Wall Compressor and Expander, and Rotary Scrubber product family.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-card-header">
+            <div class="team-avatar">E4</div>
+            <div class="team-title-block">
+              <h3>E4 Engineering</h3>
+              <div class="team-role">Field & Applications Team</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <p>E4's field and applications team brings direct compressor station operational experience to product design, ensuring every technology is field-deployable and maintainable under real-world conditions — not just laboratory environments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">Our Values</div>
+      <h2 class="section-title">What Drives E4</h2>
+      <p class="section-subtitle" style="margin-bottom:2.5rem;">E4's brand attributes reflect the demands of field-deployed technology in harsh industrial environments.</p>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🔩</div>
+          <div>
+            <h3>Durable</h3>
+            <p>Products designed for the rigors of compression station environments. Continuous duty, high-temperature, high-vibration — E4 technology is engineered to run alongside the compressors it serves.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔬</div>
+          <div>
+            <h3>Technical</h3>
+            <p>Grounded in engineering fundamentals — centrifugal fluid dynamics, thermodynamics, tribology, and materials science. Not marketing claims; verifiable technical performance backed by modeling, testing, and patents.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📈</div>
+          <div>
+            <h3>Scalable</h3>
+            <p>Designed for fleet deployment. E4 products are modular, repeatable, and suitable for OEM integration — enabling operators to standardize across compression fleets, not deploy one-off pilot curiosities.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✅</div>
+          <div>
+            <h3>Credible</h3>
+            <p>Backed by patents, third-party NDAs with major operators and OEMs, SPE technical paper presentations, and independent research institution partnerships. E4's technology credibility is demonstrated, not claimed.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏗️</div>
+          <div>
+            <h3>Field-Proven</h3>
+            <p>The development roadmap is anchored in field pilot programs — at actual compressor stations, with real operating data. E4 validates in the field, not just the laboratory.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔄</div>
+          <div>
+            <h3>Built on Continuity</h3>
+            <p>E4 represents the forward progression of E2 and E3 — building on the foundation of decades of compression industry experience while advancing into the next generation of technology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Work with E4 Energy Services</h2>
+    <p>Whether you're an operator, OEM, or research partner, we'd like to hear from you.</p>
+    <a href="contact.html" class="btn btn-primary" style="font-size:0.9rem;padding:1rem 2.5rem;">Get in Touch</a>
   </div>
-</div>
 
-<!-- APPROACH -->
-<div class="approach">
-  <div class="section-label">Our Approach</div>
-  <h2 class="section-h2">THREE PILLARS</h2>
-  <div class="approach-grid">
-    <div class="approach-item reveal">
-      <div class="ai-num">01</div>
-      <div class="ai-title">Eliminate Fugitive Methane</div>
-      <p class="ai-desc">Zero-Methane Rod Packing and Oil-Free Piston Seals attack the primary source of process gas leaks in reciprocating compressors — at the rod and piston — achieving zero fugitive emissions without oil contamination.</p>
-    </div>
-    <div class="approach-item reveal">
-      <div class="ai-num">02</div>
-      <div class="ai-title">Capture Exhaust CO₂</div>
-      <p class="ai-desc">The ECC system separates greater than 99% of CO₂ from engine exhaust using centrifugal cryogenic technology — no chemicals, supercritical liquid output, 45Q-eligible, and capable of generating electrical power from waste heat.</p>
-    </div>
-    <div class="approach-item reveal">
-      <div class="ai-num">03</div>
-      <div class="ai-title">Optimize Gas &amp; Fluid Handling</div>
-      <p class="ai-desc">Rotary scrubbers, centrifugal production separators, and fuel gas conditioners improve operational efficiency, eliminate flaring, and reduce CO₂-equivalent per barrel of oil equivalent across the production and compression chain.</p>
-    </div>
-  </div>
 </div>
-
-<script src="shared.js"></script>
-<script>initPage('about');</script>
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
 </body>
 </html>
