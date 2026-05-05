@@ -1,186 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — E4 Energy Services</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .contact-body {
-    padding: 6rem 4rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — E4 Energy Services, LLC</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-hero {
+      background: linear-gradient(150deg, var(--dark-navy) 0%, #0d3a62 100%);
+      padding: 5rem 2rem 4rem;
+    }
 
-  .contact-left p { color: var(--mist); max-width: 420px; margin-top: 1.5rem; line-height: 1.85; }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
 
-  .contact-info { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 2rem; }
-  .ci-item { }
-  .ci-label {
-    font-family: 'DM Mono', monospace; font-size: 0.90rem;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
-  }
-  .ci-value { font-size: 1.35rem; color: var(--mist); }
+    /* Form */
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
 
-  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label {
-    font-family: 'DM Mono', monospace; font-size: 0.90rem;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-  }
-  .form-group input, .form-group textarea, .form-group select {
-    background: var(--steel); border: 1px solid rgba(143,165,187,0.2);
-    color: var(--white); padding: 0.9rem 1rem;
-    font-family: 'DM Sans', sans-serif; font-size: 1.35rem;
-    outline: none; transition: border-color 0.2s; resize: vertical;
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--accent);
-  }
-  .form-group select option { background: var(--steel); }
+    .contact-form h2 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      margin-bottom: 0.4rem;
+    }
 
-  .submit-btn {
-    background: var(--accent); color: var(--ink);
-    padding: 1rem; font-family: 'DM Sans', sans-serif;
-    font-weight: 500; font-size: 1.32rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    border: none; cursor: pointer; transition: background 0.2s, transform 0.2s;
-    margin-top: 0.5rem;
-  }
-  .submit-btn:hover { background: var(--accent2); transform: translateY(-2px); }
-  .submit-btn:disabled { background: var(--mid); cursor: default; transform: none; }
+    .contact-form p.form-sub {
+      font-size: 0.88rem;
+      color: var(--steel);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
 
-  .interest-areas {
-    background: var(--steel); padding: 5rem 4rem;
-    border-top: 1px solid rgba(0,200,160,0.08);
-  }
-  .ia-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .ia-item {
-    border: 1px solid rgba(0,200,160,0.12); padding: 2rem 1.5rem;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  .ia-item:hover { border-color: rgba(0,200,160,0.35); background: var(--slate); }
-  .ia-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-  .ia-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
-  .ia-desc { font-size: 1.20rem; color: var(--mist); line-height: 1.7; }
-</style>
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-field {
+      margin-bottom: 1rem;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      appearance: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition);
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--mid-blue); }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--steel);
+      margin-top: 0.75rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Contact info sidebar */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-info-card {
+      background: var(--dark-navy);
+      border-radius: var(--radius);
+      padding: 2rem;
+      color: var(--white);
+    }
+
+    .contact-info-card h3 {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .contact-detail:last-child { margin-bottom: 0; }
+
+    .contact-detail-icon {
+      font-size: 1.1rem;
+      min-width: 24px;
+      margin-top: 0.1rem;
+    }
+
+    .contact-detail-text {
+      font-size: 0.88rem;
+      color: rgba(191,195,199,0.85);
+      line-height: 1.5;
+    }
+
+    .contact-detail-text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+
+    .engagement-types {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .engagement-types li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.87rem;
+      color: rgba(191,195,199,0.8);
+      line-height: 1.5;
+    }
+    .engagement-types li::before {
+      content: '▸';
+      color: var(--light-blue);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .form-success h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      font-size: 0.9rem;
+      color: var(--steel);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
 
-<div class="page-hero">
-  <div class="section-label page-hero-label">Get in Touch</div>
-  <h1>LET'S TALK<br><em>EMISSIONS.</em></h1>
-  <p>Whether you're evaluating a pilot, exploring 45Q opportunities, or want to understand how E4 technology fits your existing assets — we'd like to hear from you.</p>
-</div>
+  <section class="contact-hero">
+    <div class="section-inner">
+      <div class="hero-eyebrow" style="color:var(--light-blue);margin-bottom:1rem;">
+        <span style="display:block;width:32px;height:2px;background:var(--light-blue);"></span>
+        Contact Us
+      </div>
+      <h1 style="font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;line-height:1.05;margin-bottom:1.25rem;">
+        Talk to the<br>
+        <span style="color:var(--light-blue);">E4 Engineering Team</span>
+      </h1>
+      <p style="color:var(--light-gray);font-size:1.05rem;max-width:560px;line-height:1.7;">
+        Whether you're interested in a specific product, a pilot program, OEM integration, or an NDA to review our technical documentation — reach out directly.
+      </p>
+    </div>
+  </section>
 
-<div class="contact-body">
-  <div class="contact-left">
-    <div class="section-label">Reach Out</div>
-    <h2 class="section-h2" style="margin-bottom:0;">CONNECT<br>WITH E4</h2>
-    <p>Our team works directly with compression operators, midstream companies, and OEMs to identify the right product fit, structure pilot programs, and support 45Q credit qualification.</p>
-
-    <div class="contact-info">
-      <div class="ci-item">
-        <div class="ci-label">Company</div>
-        <div class="ci-value">E4 Energy Services, LLC</div>
-      </div>
-      <div class="ci-item">
-        <div class="ci-label">Focus Markets</div>
-        <div class="ci-value">Natural Gas Compression · Midstream · E&amp;P · LNG</div>
-      </div>
-      <div class="ci-item">
-        <div class="ci-label">Technology Readiness</div>
-        <div class="ci-value">Patents granted &amp; pending · Pilot program underway · Component testing in progress</div>
-      </div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a><span>›</span>
+      <span>Contact</span>
     </div>
   </div>
 
-  <div>
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="First name" id="fname">
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-layout">
+
+        <!-- FORM -->
+        <div class="contact-form">
+          <h2>Send a Message</h2>
+          <p class="form-sub">Our engineering team typically responds within one business day.</p>
+
+          <div id="contact-form-body">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="first_name" placeholder="John" required>
+              </div>
+              <div class="form-field">
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="last_name" placeholder="Smith" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john.smith@company.com" required>
+            </div>
+            <div class="form-field">
+              <label for="company">Company / Organization</label>
+              <input type="text" id="company" name="company" placeholder="Your company name">
+            </div>
+            <div class="form-field">
+              <label for="role">Your Role</label>
+              <select id="role" name="role">
+                <option value="" disabled selected>Select your role</option>
+                <option>Operator / E&P Company</option>
+                <option>Compression OEM</option>
+                <option>Midstream / Pipeline Operator</option>
+                <option>Research Institution</option>
+                <option>Investor / Financial Partner</option>
+                <option>Engineering / Consulting</option>
+                <option>Government / Regulatory</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="interest">Area of Interest</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Select a topic</option>
+                <option>Zero Methane Rod Packing</option>
+                <option>Oil-Free Piston Seals</option>
+                <option>Exhaust Carbon Capture (ECC) System</option>
+                <option>Rotary Scrubber / Separator</option>
+                <option>Fuel Gas Stabilizer</option>
+                <option>Moving Wall Compressor / Expander</option>
+                <option>Field Pilot Program</option>
+                <option>OEM Integration / Partnership</option>
+                <option>NDA &amp; Technical Documentation</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Describe your application, ask a technical question, or tell us about your compression fleet..." required></textarea>
+            </div>
+            <button type="button" class="form-submit" onclick="submitForm()">Send Message</button>
+            <p class="form-note">Your information is used solely for responding to your inquiry. E4 does not sell or share contact data.</p>
+          </div>
+
+          <div class="form-success" id="form-success">
+            <div class="success-icon">✅</div>
+            <h3>Message Received</h3>
+            <p>Thank you for reaching out. A member of the E4 engineering team will be in touch within one business day.</p>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Last name" id="lname">
+
+        <!-- SIDEBAR -->
+        <div class="contact-info">
+          <div class="contact-info-card">
+            <h3>Direct Contact</h3>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉️</div>
+              <div class="contact-detail-text">
+                <strong>General Inquiries</strong>
+                info@e4energyservices.com
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🔧</div>
+              <div class="contact-detail-text">
+                <strong>Engineering / Technical</strong>
+                engineering@e4energyservices.com
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div class="contact-detail-text">
+                <strong>Headquarters</strong>
+                Dallas, Texas
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <h3>How We Engage</h3>
+            <ul class="engagement-types">
+              <li>NDA execution for technical documentation review</li>
+              <li>Field pilot program scoping and proposal</li>
+              <li>OEM component testing and integration discussions</li>
+              <li>Operator fleet assessment and application review</li>
+              <li>Technical briefings for engineering teams</li>
+              <li>Investment and partnership discussions</li>
+            </ul>
+          </div>
+
+          <div style="background:rgba(15,76,129,0.07);border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:0 var(--radius) var(--radius) 0;padding:1.5rem;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);margin-bottom:0.6rem;">Current Engagement Status</div>
+            <p style="font-size:0.87rem;color:var(--text-mid);line-height:1.6;">E4 currently has active NDAs with National Fuel Gas, Innio/Waukesha, Southwest Research Institute, Occidental, Kinder Morgan, Siemens Energy, and others. We welcome qualified operator, OEM, and research institution inquiries.</p>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" placeholder="Your company" id="company">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="you@company.com" id="email">
-      </div>
-      <div class="form-group">
-        <label>Phone (optional)</label>
-        <input type="tel" placeholder="+1 (000) 000-0000" id="phone">
-      </div>
-      <div class="form-group">
-        <label>Area of Interest</label>
-        <select id="interest">
-          <option value="">Select a product or topic…</option>
-          <option>Exhaust Carbon Capture (ECC System)</option>
-          <option>Zero Methane Rod Packing</option>
-          <option>Oil-Free Piston Seals</option>
-          <option>Rotary Scrubber / Separator</option>
-          <option>Moving Wall Compressor / Expander</option>
-          <option>Centrifugal Production Separator</option>
-          <option>Fuel Gas Conditioner</option>
-          <option>45Q Tax Credit Qualification</option>
-          <option>Field Pilot Program</option>
-          <option>Partnership / Investment</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="5" placeholder="Tell us about your compression assets, emissions targets, or questions…" id="message"></textarea>
-      </div>
-      <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">Send Message →</button>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- INTEREST AREAS -->
-<div class="interest-areas">
-  <div class="section-label">Common Starting Points</div>
-  <h2 class="section-h2">HOW CAN WE<br>HELP?</h2>
-  <div class="ia-grid">
-    <div class="ia-item reveal">
-      <div class="ia-icon">🧪</div>
-      <div class="ia-title">Pilot Program</div>
-      <p class="ia-desc">We structure field pilots at active compressor stations to validate performance against your specific operating conditions and demonstrate 45Q qualification.</p>
-    </div>
-    <div class="ia-item reveal">
-      <div class="ia-icon">💰</div>
-      <div class="ia-title">45Q Economics</div>
-      <p class="ia-desc">We can model the credit revenue potential for your specific station size, exhaust volume, and intended CO₂ disposition — EOR or geologic sequestration.</p>
-    </div>
-    <div class="ia-item reveal">
-      <div class="ia-icon">⚙️</div>
-      <div class="ia-title">Integration Review</div>
-      <p class="ia-desc">Our engineers review your existing compressor packages and identify which E4 products offer the highest value-to-complexity ratio for your assets.</p>
-    </div>
-    <div class="ia-item reveal">
-      <div class="ia-icon">🤝</div>
-      <div class="ia-title">Partnership</div>
-      <p class="ia-desc">We work with OEMs, research institutions, and investors to accelerate commercialization. NDAs can be executed quickly to begin technical discussions.</p>
-    </div>
-  </div>
 </div>
-
-<script src="shared.js"></script>
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
 <script>
-  initPage('contact');
-  function handleSubmit() {
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = 'var(--accent2)';
-    btn.disabled = true;
+  function submitForm() {
+    const required = ['fname', 'lname', 'email', 'message'];
+    let valid = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#c0392b';
+        el.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.1)';
+        valid = false;
+      } else {
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+      }
+    });
+    if (valid) {
+      document.getElementById('contact-form-body').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
   }
 </script>
 </body>

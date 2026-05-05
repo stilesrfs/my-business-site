@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emissions Solutions — E4 Energy Services, LLC</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .em-hero {
+      background: linear-gradient(150deg, #0A2E4D 0%, #0b3560 50%, #0F4C81 100%);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .em-hero::after {
+      content: '';
+      position: absolute;
+      left: -100px; top: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(27,143,209,0.15) 0%, transparent 70%);
+    }
+
+    .impact-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .impact-cell {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .impact-cell:hover { background: var(--off-white); }
+
+    .impact-num {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .impact-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--steel);
+      line-height: 1.4;
+    }
+
+    /* Methane section */
+    .methane-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .problem-card {
+      background: #fff5f5;
+      border: 1px solid #fcc;
+      border-left: 4px solid #c0392b;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.75rem;
+    }
+    .problem-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin-bottom: 0.75rem;
+    }
+    .problem-card p {
+      font-size: 0.88rem;
+      color: #6b3030;
+      line-height: 1.65;
+    }
+
+    .solution-card {
+      background: #f0f7ff;
+      border: 1px solid #b3d4f0;
+      border-left: 4px solid var(--navy);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.75rem;
+    }
+    .solution-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .solution-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* Regulatory timeline */
+    .reg-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .reg-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--navy), var(--mid-blue));
+    }
+    .reg-item {
+      position: relative;
+      padding: 0 0 2rem 2rem;
+    }
+    .reg-item::before {
+      content: '';
+      position: absolute;
+      left: -0.45rem; top: 0.3rem;
+      width: 12px; height: 12px;
+      background: var(--navy);
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--navy);
+    }
+    .reg-year {
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid-blue);
+      margin-bottom: 0.3rem;
+    }
+    .reg-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark-navy);
+      margin-bottom: 0.4rem;
+    }
+    .reg-item p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* Carbon economics */
+    .economics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .economics-table th {
+      background: var(--dark-navy);
+      color: var(--white);
+      padding: 0.85rem 1.25rem;
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .economics-table td {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+    }
+    .economics-table tr:last-child td { border-bottom: none; }
+    .economics-table tr:nth-child(even) td { background: var(--off-white); }
+    .val-highlight { font-weight: 700; color: #168847; }
+    .val-navy { font-weight: 700; color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .impact-row { grid-template-columns: repeat(2, 1fr); }
+      .methane-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+  <section class="em-hero">
+    <div class="section-inner" style="position:relative;z-index:2;">
+      <div class="hero-eyebrow" style="color:var(--light-blue);margin-bottom:1rem;">
+        <span style="display:block;width:32px;height:2px;background:var(--light-blue);"></span>
+        Emissions Solutions
+      </div>
+      <h1 style="font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;text-transform:uppercase;color:var(--white);letter-spacing:0.02em;line-height:1.05;margin-bottom:1.25rem;">
+        From Methane Leaks<br>
+        <span style="color:var(--light-blue);">to Carbon Capture</span>
+      </h1>
+      <p style="color:var(--light-gray);font-size:1.05rem;max-width:600px;line-height:1.7;">
+        E4's emissions solutions address natural gas compression's two largest environmental challenges: fugitive methane emissions from compressor sealing, and CO₂ output from gas-driven prime movers.
+      </p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a><span>›</span>
+      <span>Emissions Solutions</span>
+    </div>
+  </div>
+
+  <!-- IMPACT NUMBERS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">The Emissions Challenge</div>
+      <h2 class="section-title">The Problem — By the Numbers</h2>
+      <p class="section-subtitle" style="margin-bottom:2.5rem;">Compression infrastructure is responsible for a disproportionately large share of oil &amp; gas sector emissions. E4 targets the highest-impact sources directly.</p>
+
+      <div class="impact-row">
+        <div class="impact-cell">
+          <div class="impact-num">~20%</div>
+          <div class="impact-label">of methane emissions from oil & gas in reciprocating compression</div>
+        </div>
+        <div class="impact-cell">
+          <div class="impact-num">900 CFH</div>
+          <div class="impact-label">Methane leak rate from worn conventional rod packing</div>
+        </div>
+        <div class="impact-cell">
+          <div class="impact-num">60 CFH</div>
+          <div class="impact-label">Methane leak rate from new conventional rod packing</div>
+        </div>
+        <div class="impact-cell">
+          <div class="impact-num">75K T</div>
+          <div class="impact-label">Tons CO₂/year captured by single E4 ECC skid at 15K HP</div>
+        </div>
+      </div>
+
+      <!-- Problem / Solution pairs -->
+      <div class="methane-grid" id="methane">
+        <div class="problem-card">
+          <h3>Problem: Fugitive Methane from Rod Packing</h3>
+          <p>Conventional rod packing allows process gas — primarily methane — to migrate along the compressor rod and vent to atmosphere. New packing leaks up to 60 CFH; worn packing can exceed 900 CFH. Across a large fleet, this represents enormous uncontrolled methane emissions.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Solution: Zero Methane Rod Packing</h3>
+          <p>E4's externally pressurized dry gas packing injects nitrogen through porous media barriers, ensuring only pure nitrogen reaches atmosphere. Process gas never contacts the atmospheric side of the packing — reducing site methane emissions to zero from this source.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Problem: Oil & Methane from Piston Blow-by</h3>
+          <p>Conventional piston ring designs allow both oil vapor and process gas to blow by the ring seal during compression cycles. This requires cylinder oiling systems, generates oil-contaminated gas streams, and contributes to fugitive methane emissions and unplanned maintenance.</p>
+        </div>
+        <div class="solution-card">
+          <h3>Solution: Oil-Free Piston Seals</h3>
+          <p>E4's porous media piston seal creates a gas-film barrier between piston and cylinder bore — eliminating oil lubrication entirely. No oil carryover, no oil-maintenance downtime, and no methane bypass through ring gaps. The frictionless non-contacting design reduces wear simultaneously.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Problem: Carbon Emissions from Gas-Driven Compressors</h3>
+          <p>Large natural gas compressor stations powered by gas-fired engines emit substantial CO₂. Current practice vents exhaust to atmosphere. At a 15,000 HP station, this represents approximately 75,000+ tons/year of CO₂ with no current capture path.</p>
+        </div>
+        <div class="solution-card" id="carbon">
+          <h3>Solution: Exhaust Carbon Capture System</h3>
+          <p>E4's patented ECC system captures &gt;99% of CO₂ from compressor exhaust using centrifugal cryogenic separation — no chemicals required. Supercritical CO₂ is discharged at 1,100–5,000 PSI for EOR or sequestration, generating 45Q tax credits of $60–85/ton under the IRA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARBON ECONOMICS -->
+  <section class="section section-alt" id="compliance">
+    <div class="section-inner">
+      <div class="two-col-60">
+        <div>
+          <div class="section-label">Carbon Economics</div>
+          <h2 class="section-title">IRA 45Q Tax Credit Opportunity</h2>
+          <p class="section-subtitle">Changes to the 45Q tax credit program under the Inflation Reduction Act significantly improve the economics of ECC deployment — with credits now applying to much smaller capture volumes.</p>
+
+          <table class="economics-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Pre-IRA</th>
+                <th>Post-IRA (Current)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Minimum Capture Threshold</td>
+                <td>500,000 MT/year</td>
+                <td class="val-highlight">12,500 MT/year</td>
+              </tr>
+              <tr>
+                <td>45Q Credit — EOR</td>
+                <td>~$35/ton</td>
+                <td class="val-highlight">$60/ton</td>
+              </tr>
+              <tr>
+                <td>45Q Credit — Sequestration</td>
+                <td>~$50/ton</td>
+                <td class="val-highlight">$85/ton</td>
+              </tr>
+              <tr>
+                <td>Annual Revenue (75K tons × $60)</td>
+                <td>—</td>
+                <td class="val-navy">$4.5M/year (EOR)</td>
+              </tr>
+              <tr>
+                <td>Annual Revenue (75K tons × $85)</td>
+                <td>—</td>
+                <td class="val-navy">$6.375M/year (Seq.)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin-top:1.25rem;font-size:0.82rem;color:var(--steel);font-style:italic;">
+            Note: Tax credit calculations are illustrative. Consult qualified tax counsel for specific project applications. E4 is not a tax advisor.
+          </p>
+        </div>
+
+        <div>
+          <div class="section-label">Regulatory Landscape</div>
+          <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;color:var(--dark-navy);line-height:1.1;margin-bottom:1.5rem;">
+            Tightening Standards Ahead
+          </h2>
+          <div class="reg-timeline">
+            <div class="reg-item">
+              <div class="reg-year">EPA NSPS OOOOa</div>
+              <h4>Reciprocating Compressor Rod Packing Standards</h4>
+              <p>Emissions performance standards for rod packing at compressor stations — requires monitoring, reporting, and in some cases replacement of high-emission packing.</p>
+            </div>
+            <div class="reg-item">
+              <div class="reg-year">EPA NSPS OOOOb / Quad Ob</div>
+              <h4>Expanded Fugitive Emissions Requirements</h4>
+              <p>Expanded monitoring and control requirements for reciprocating compressors — increasing pressure on operators to demonstrate actual emissions reduction, not just compliance reporting.</p>
+            </div>
+            <div class="reg-item">
+              <div class="reg-year">IRA — Methane Fee (2024+)</div>
+              <h4>Waste Emissions Charge</h4>
+              <p>The Inflation Reduction Act introduces a federal methane waste emissions charge for large operators — creating direct financial exposure for facilities with uncontrolled fugitive methane emissions.</p>
+            </div>
+            <div class="reg-item">
+              <div class="reg-year">State-Level Rules</div>
+              <h4>Colorado, California, New Mexico OGMP 2.0</h4>
+              <p>Leading energy-producing states have adopted methane reduction frameworks ahead of federal timelines, creating earlier compliance obligations for operators in those basins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER ENGAGEMENTS -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="section-label">Strategic Partnerships</div>
+      <h2 class="section-title">Industry Validation</h2>
+      <p class="section-subtitle">E4 technology has attracted active engagement from major operators and OEMs seeking real emissions reduction solutions — not paper compliance.</p>
+
+      <div class="card-grid card-grid-3">
+        <div class="card card-dark">
+          <div class="card-icon">🤝</div>
+          <h3>Innio / Waukesha</h3>
+          <p>NDA in place. Innio/Waukesha committed $500,000–$700,000 for Axip component testing and pilot participation in the ECC system — the highest-value OEM validation commitment in E4's development program.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-icon">⚗️</div>
+          <h3>Southwest Research Institute</h3>
+          <p>NDA in place for collaborative development. SwRI provides independent engineering expertise and test infrastructure for advanced energy and emissions technology validation programs.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-icon">🏭</div>
+          <h3>National Fuel Gas</h3>
+          <p>NDA in place. Reviewing pilot proposal for the ECC system field deployment at an active NFG compressor station — the planned first full-system field pilot generating CO₂ removal and efficiency data.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-icon">🛢️</div>
+          <h3>Occidental / Oxy Low Carbon</h3>
+          <p>NDAs with both Occidental Petroleum and Oxy Low Carbon Ventures. Active meetings with Corporate Technical Staff and OLCV team — interest in Rotary Separator, Compressor Seals, and ECC technology.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-icon">⚡</div>
+          <h3>Siemens Energy</h3>
+          <p>Meeting with Director of Strategy &amp; Business Development and technical team. Expressed interest in Compressor Seals and ECC technology for integration into Siemens' compressor station offerings.</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-icon">🔬</div>
+          <h3>Chevron Technology</h3>
+          <p>Discussions underway with Chevron's Carbon Capture Technology Strategy Manager regarding ECC system evaluation and potential co-development or deployment at Chevron facilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Let's Reduce Your Emissions Footprint</h2>
+    <p>Contact E4 to discuss how our solutions apply to your specific compression assets and regulatory obligations.</p>
+    <a href="contact.html" class="btn btn-primary" style="font-size:0.9rem;padding:1rem 2.5rem;">Start the Conversation</a>
+  </div>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+</body>
+</html>
