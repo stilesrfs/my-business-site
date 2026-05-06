@@ -60,7 +60,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  height: 68px;
+  height: 84px;
 }
 
 .nav-logo {
@@ -70,7 +70,7 @@ nav {
 }
 
 .nav-logo img {
-  height: 44px;
+  height: 64px;
   width: auto;
   background: var(--white);
   border-radius: 6px;
@@ -142,7 +142,7 @@ nav {
 
 /* ---- PAGE WRAPPER ---- */
 .page-content {
-  padding-top: 68px;
+  padding-top: 84px;
 }
 
 /* ---- HERO SECTIONS ---- */
@@ -478,7 +478,7 @@ footer {
 }
 
 .footer-brand img {
-  height: 40px;
+  height: 60px;
   width: auto;
   background: var(--white);
   border-radius: 6px;
